@@ -1,0 +1,23 @@
+{
+  "doc_id": "87-2026TTBTC",
+  "file_goc": "87-2026TTBTC.pdf",
+  "so_ky_tu_raw_text": 13376,
+  "validate_structure": {
+    "tong_so_dieu": 6,
+    "danh_sach_so_dieu": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "so_dieu_lien_tuc": true,
+    "dieu_khong_co_khoan": [
+      "2"
+    ]
+  },
+  "so_chunk_A": 6,
+  "so_chunk_B": 22,
+  "so_chunk_C": 10
+}
