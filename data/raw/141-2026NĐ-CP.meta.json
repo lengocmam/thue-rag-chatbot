@@ -1,0 +1,69 @@
+{
+  "doc_id": "nd_141_2026_ndcp",
+  "loai_van_ban": "Nghị định (sửa đổi, bổ sung)",
+  "so_hieu": "141/2026/NĐ-CP",
+  "ten_van_ban": "Nghị định sửa đổi, bổ sung một số điều của Nghị định số 68/2026/NĐ-CP quy định về chính sách thuế đối với hộ kinh doanh, cá nhân kinh doanh và Nghị định số 320/2025/NĐ-CP quy định chi tiết một số điều và biện pháp để tổ chức, hướng dẫn thi hành Luật Thuế thu nhập doanh nghiệp",
+  "co_quan_ban_hanh": "Chính phủ",
+  "nguoi_ky": "Nguyễn Văn Thắng",
+  "chuc_vu_nguoi_ky": "Phó Thủ tướng (KT. Thủ tướng, TM. Chính phủ)",
+  "ngay_ban_hanh": "2026-04-29",
+  "noi_ban_hanh": "Hà Nội",
+
+  "hieu_luc": {
+    "ngay_hieu_luc": "2026-01-01",
+    "dieu_khoan_nguon": "Điều 3",
+    "ghi_chu": "HỒI TỐ -- hiệu lực TRƯỚC ngày ban hành (29/04/2026) hơn 3 tháng. Cùng kiểu hồi tố như Luật 09/2026/QH16 (Điều 1,2,3 của luật đó cũng hiệu lực từ 01/01/2026). Đây là mẫu số chung của các văn bản thuế sửa đổi trong đợt này -- nên lưu ý khi trả lời câu hỏi về 'văn bản nào áp dụng tại thời điểm X'."
+  },
+
+  "can_cu_phap_ly": [
+    {"so_hieu": "63/2025/QH15", "ten": "Luật Tổ chức Chính phủ", "ghi_chu": "Không thuộc phạm vi nội dung thuế"},
+    {"so_hieu": "109/2025/QH15", "ten": "Luật Thuế thu nhập cá nhân", "ghi_chu": "Đã có trong bộ dữ liệu (qua Thông tư 87/2026 và Luật 09/2026)"},
+    {"so_hieu": "48/2024/QH15", "ten": "Luật Thuế giá trị gia tăng (sửa đổi bởi 90/2025/QH15, 149/2025/QH15)", "ghi_chu": "Chưa có trong bộ dữ liệu"},
+    {"so_hieu": "67/2025/QH15", "ten": "Luật Thuế thu nhập doanh nghiệp (sửa đổi bởi 116,127,133,141,143/2025/QH15)", "ghi_chu": "Chưa có trong bộ dữ liệu"},
+    {"so_hieu": "38/2019/QH14", "ten": "Luật Quản lý thuế (sửa đổi bởi 56/2024/QH15)", "ghi_chu": "Chưa có trong bộ dữ liệu"},
+    {"so_hieu": "108/2025/QH15", "ten": "Luật Quản lý thuế", "ghi_chu": "Đã có trong bộ dữ liệu (căn cứ của Thông tư 91/2026)"},
+    {"so_hieu": "09/2026/QH16", "ten": "Luật sửa đổi 4 luật thuế", "ghi_chu": "Đã có trong bộ dữ liệu"}
+  ],
+
+  "sua_doi_cac_van_ban": [
+    {
+      "van_ban_bi_sua": "Nghị định số 68/2026/NĐ-CP ngày 05/3/2026 (chính sách thuế hộ kinh doanh, cá nhân kinh doanh)",
+      "dieu_sua_trong_van_ban_nay": "Điều 1",
+      "noi_dung_sua": "(1) Thay cụm từ '500 triệu đồng' thành '01 tỷ đồng' tại Điều 3, Điều 4, khoản 1 Điều 8, Điều 9, Điều 10, khoản 3 Điều 11, khoản 1-2 Điều 12, khoản 4 Điều 17, khoản 3 Điều 18; (2) Sửa đổi khoản 5 Điều 8 -- quy định chi tiết ngưỡng áp dụng hóa đơn điện tử có mã cơ quan thuế",
+      "ghi_chu": "*** ĐÂY LÀ VĂN BẢN CHỨA CON SỐ NGƯỠNG DOANH THU CỤ THỂ (01 tỷ đồng) mà Luật 109/2025/QH15, Luật 09/2026/QH16 và Nghị định 253/2026 chỉ nói 'Chính phủ quy định' không nêu số. Đây là mắt xích cuối cùng trả lời câu hỏi 'ngưỡng doanh thu miễn thuế là bao nhiêu' -- RẤT QUAN TRỌNG cho retrieval, vì câu trả lời đúng nằm ở văn bản sửa đổi này, không nằm ở văn bản luật gốc.",
+      "co_trong_bo_du_lieu": false,
+      "van_ban_can_bo_sung": ["68/2026/NĐ-CP (bản gốc, để biết đầy đủ nội dung trước khi sửa)"]
+    },
+    {
+      "van_ban_bi_sua": "Nghị định số 320/2025/NĐ-CP ngày 15/12/2025 (hướng dẫn Luật Thuế TNDN)",
+      "dieu_sua_trong_van_ban_nay": "Điều 2",
+      "noi_dung_sua": "Bổ sung khoản 15 Điều 4 -- miễn thuế TNDN cho doanh nghiệp có tổng doanh thu năm từ 01 tỷ đồng trở xuống, kèm 4 điểm hướng dẫn cách tính doanh thu, trường hợp hoạt động dưới 12 tháng, doanh nghiệp mới thành lập, và loại trừ công ty con/liên kết",
+      "ghi_chu": "Cùng ngưỡng 01 tỷ đồng như Điều 1 nhưng áp dụng cho DOANH NGHIỆP (không phải hộ kinh doanh cá thể) -- cần phân biệt rõ 2 đối tượng khi trả lời câu hỏi để tránh nhầm lẫn",
+      "co_trong_bo_du_lieu": false,
+      "van_ban_can_bo_sung": ["320/2025/NĐ-CP (bản gốc)"]
+    }
+  ],
+
+  "cau_truc_dieu": [
+    {"dieu": "Điều 1", "ten": "Sửa đổi, bổ sung một số điều của Nghị định số 68/2026/NĐ-CP...", "so_khoan": 2},
+    {"dieu": "Điều 2", "ten": "Bổ sung khoản 15 Điều 4 Nghị định số 320/2025/NĐ-CP...", "so_khoan": 1,
+     "ghi_chu": "Nội dung khoản 15 có 4 điểm a,b,c,d"},
+    {"dieu": "Điều 3", "ten": "Hiệu lực thi hành", "so_khoan": 0},
+    {"dieu": "Điều 4", "ten": "Điều khoản chuyển tiếp", "so_khoan": 3,
+     "ghi_chu": "Xử lý các trường hợp giao thời quanh mốc 01/01/2026 -- nguồn câu hỏi tốt về tình huống thực tế"},
+    {"dieu": "Điều 5", "ten": "Trách nhiệm thi hành", "so_khoan": 0}
+  ],
+
+  "doi_tuong_lien_quan_ho_gia_dinh": true,
+  "ghi_chu_do_kho": "Văn bản ngắn nhưng CHỨA CON SỐ NGƯỠNG DOANH THU QUAN TRỌNG NHẤT của toàn bộ domain (01 tỷ đồng) -- nếu retrieval không tìm ra đúng văn bản này khi được hỏi về ngưỡng doanh thu, chatbot sẽ không có cách nào trả lời chính xác dù các văn bản luật gốc đều có nhắc đến khái niệm này. Đây là ví dụ điển hình cho vấn đề 'thông tin phân mảnh qua nhiều văn bản sửa đổi' trong pháp luật thuế Việt Nam -- rất đáng phân tích trong phần đánh giá khoa học của khóa luận.",
+
+  "ky_thuat_parse": {
+    "tuong_thich_parser_hien_tai": "hoàn toàn",
+    "ghi_chu": "Văn bản thuần văn xuôi, không bảng biểu, không Chương -- tương thích với legal_structure_parser.py hiện có (Điều/Khoản/Điểm chuẩn). Có thể dùng chung pipeline ingest_one_doc.py hoặc viết script riêng như các file trước."
+  },
+
+  "file_goc": "141-2026NĐ-CP.pdf",
+  "nguon_thu_thap": "user_upload",
+  "ngay_thu_thap": "2026-08-08",
+  "trang_thai_kiem_chung": "chua_doi_chieu_ban_goc_vbpl"
+}

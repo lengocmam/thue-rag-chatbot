@@ -73,7 +73,7 @@ RE_DIEU = re.compile(r"^Điều\s+(\d+)\.\s*(.*)$")
 # (xem giải thích chi tiết trong src/ingestion/legal_structure_parser.py)
 DANGLING_LAST_WORDS = {
     "của", "về", "cho", "tại", "theo", "và", "hoặc", "là", "được",
-    "có", "trong", "mà", "đến", "từ", "để", "với", "giảm", "khoản", "số", "Thuế",
+    "có", "trong", "mà", "đến", "từ", "để", "với", "giảm", "khoản", "số", "thuế",
 }
 
 
@@ -81,7 +81,7 @@ def _is_title_dangling(title: str) -> bool:
     words = title.strip().split()
     if not words:
         return False
-    return words[-1] in DANGLING_LAST_WORDS
+    return words[-1].lower() in DANGLING_LAST_WORDS
 
 
 def extract_prose_dieu(text: str) -> dict:
@@ -92,6 +92,7 @@ def extract_prose_dieu(text: str) -> dict:
     current_so = None
     current_ten = None
     title_pending = False
+    title_merge_count = 0
     buffer = []
 
     def flush():
@@ -111,11 +112,13 @@ def extract_prose_dieu(text: str) -> dict:
             current_so = m.group(1)
             current_ten = m.group(2)
             title_pending = _is_title_dangling(current_ten)
+            title_merge_count = 0
             buffer = []
             continue
-        if title_pending and not buffer:
+        if title_pending and not buffer and title_merge_count < 3:
             current_ten += " " + line
-            title_pending = False
+            title_merge_count += 1
+            title_pending = _is_title_dangling(current_ten)
             continue
         if current_so == "4":
             # Đang trong vùng Điều 4 (bảng) -- bỏ qua ở nhánh văn xuôi này

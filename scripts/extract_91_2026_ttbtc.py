@@ -1,20 +1,24 @@
 """
-extract_91_2026_ttbtc.py
-Script RIÊNG, ĐỘC LẬP cho file 91-2026-TT-BTC.pdf.
+extract_09_2026_qh16.py
+Script RIÊNG, ĐỘC LẬP cho file 09-2026-QH16.pdf.
 
-Đặc điểm khác biệt so với 2 văn bản trước (đòi hỏi logic riêng):
-1. Có cấp CHƯƠNG (Chương I..V) phía trên Điều -- 2 văn bản trước không có.
-2. Điểm lồng nhiều cấp: không chỉ "a)", "b)" mà còn "d.1)", "d.2.1)" (tối đa
-   3 cấp trong văn bản này) -- regex Điểm cũ (1 ký tự) không bao phủ đủ.
-3. Có 5 PHỤ LỤC dạng BIỂU MẪU (form) ở cuối, không phải văn xuôi Điều/Khoản:
-   - Phụ lục I, II: quy tắc ký hiệu (có nội dung diễn giải thật, đáng trích)
-   - Phụ lục III, IV, V: chỉ là danh mục mẫu biểu trống (tên + mã mẫu), hầu
-     hết là các trường điền tay (...., ngày.../tháng.../năm...) -- ít giá
-     trị nội dung để đưa vào RAG, nên script này CHỈ trích bảng danh mục
-     (mẫu số + tên hồ sơ) làm tham chiếu, KHÔNG trích toàn bộ nội dung biểu
-     mẫu trống.
+Lý do tách riêng thay vì dùng chung pipeline `legal_structure_parser.py`:
+văn bản này có Điều 4 chứa BẢNG (Biểu thuế TTĐB xe điện), không phải văn
+xuôi thuần -- regex Điều/Khoản/Điểm không xử lý được bảng.
 
-Cách chạy: python scripts/extract_91_2026_ttbtc.py
+Cách trích bảng: pdfplumber.extract_tables() KHÔNG nhận diện được bảng này
+(PDF không có đường kẻ rõ), nên phải tự dựng bảng dựa vào TỌA ĐỘ CHỮ (x0):
+  - Cột trái (mô tả xe): các từ có x0 < COL_SPLIT_X
+  - Cột phải (thuế suất): các từ có x0 >= COL_SPLIT_X
+  - Một HÀNG MỚI trong bảng bắt đầu khi cột trái có từ "Xe" ở x0 nằm trong
+    khoảng ROW_START_X_RANGE (~131-134) -- đây là vị trí thụt đầu dòng của
+    each dòng mở đầu 1 hàng; các dòng nối tiếp trong cùng hàng bắt đầu bằng
+    dấu "-" ở x0 nhỏ hơn (~122).
+  - Đã kiểm chứng thủ công: đúng cho cả 4 hàng dữ liệu của bảng này.
+
+Giới hạn: các hằng số tọa độ (COL_SPLIT_X, ROW_START_X_RANGE) được rút ra
+từ chính file PDF này -- nếu áp dụng cho PDF khác có layout khác, CẦN kiểm
+tra lại bằng đoạn code debug ở cuối file (in tọa độ x0/top của từng từ).
 """
 
 import json
@@ -23,23 +27,33 @@ import sys
 from pathlib import Path
 
 import fitz  # PyMuPDF
+import pdfplumber
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from src.ingestion.pdf_parser import is_noise_line
 
-PDF_PATH = "data/raw/91-2026-TT-BTC.pdf"
-OUT_PATH = "data/processed/tt_91_2026_ttbtc.noi_dung.json"
+PDF_PATH = "data/raw/09-2026-QH16.pdf"
+OUT_PATH = "data/processed/luat_09_2026_qh16.noi_dung.json"
 
-SIGNATURE_WATERMARK_PREFIXES = ("Người ký:", "Email:", "Cơ quan:", "Thời gian ký:")
-STOP_MARKER_MAIN_BODY = "Nơi nhận:"     # ranh giới cuối phần văn xuôi chính
-PHU_LUC_I_MARKER = "PHỤ LỤC I"          # ranh giới bắt đầu Phụ lục
+COL_SPLIT_X = 420          # x0 >= 420 -> cột thuế suất; < 420 -> cột mô tả
+TABLE_TOP = 320             # top bắt đầu vùng bảng (ngay dưới dòng "* Xe có...")
+TABLE_BOTTOM = 495          # top kết thúc vùng bảng (trước "Điều 5.")
+TABLE_PAGE_INDEX = 1        # bảng nằm ở trang 2 (index 1) của PDF này
 
 
-# ---------- Bước 1: trích text thô, tách phần chính / phụ lục ----------
+# ---------- Phần 1: Điều 1, 2, 3, 5 -- văn xuôi, parse bằng regex đơn giản ----------
 
-def extract_raw_text(pdf_path: str) -> str:
-    """Trích toàn bộ text bằng PyMuPDF (đã kiểm chứng đọc đúng hơn pdfplumber
-    với font của các văn bản Bộ Tài chính trong bộ dữ liệu này)."""
+def extract_text_pymupdf(pdf_path: str) -> str:
+    """Dùng PyMuPDF thay vì pdfplumber để trích text các trang văn xuôi.
+    LÝ DO: pdfplumber giải mã SAI cmap font ở một số đoạn của file này
+    (đã kiểm chứng: đoạn mở đầu Điều 2 bị xáo trộn ký tự hoàn toàn khi
+    dùng pdfplumber, trong khi PyMuPDF đọc đúng 100%). Đây là lỗi tương
+    thích font của thư viện, không phải lỗi nội dung file PDF gốc."""
+    # Watermark chữ ký điện tử ở góc trên văn bản -- PyMuPDF đôi khi chèn
+    # lạc vào giữa dòng đọc chính, cần lọc riêng (khác với NOISE_PATTERNS
+    # trong pdf_parser.py vốn chỉ xử lý rác do trình duyệt in PDF).
+    SIGNATURE_WATERMARK_PREFIXES = ("Người ký:", "Email:", "Cơ quan:", "Thời gian ký:")
+
     doc = fitz.open(pdf_path)
     lines_out = []
     for page in doc:
@@ -53,252 +67,152 @@ def extract_raw_text(pdf_path: str) -> str:
     return "\n".join(lines_out)
 
 
-def split_main_body_and_phu_luc(full_text: str):
-    idx_stop = full_text.find(STOP_MARKER_MAIN_BODY)
-    idx_phuluc = full_text.find(PHU_LUC_I_MARKER)
-    main_body = full_text[:idx_stop] if idx_stop != -1 else full_text
-    phu_luc_text = full_text[idx_phuluc:] if idx_phuluc != -1 else ""
-    return main_body, phu_luc_text
-
-
-# ---------- Bước 2: parse Chương / Điều / Khoản / Điểm (phần chính) ----------
-
-RE_CHUONG = re.compile(r"^Chương\s+([IVXLCDM]+)\s*$")
 RE_DIEU = re.compile(r"^Điều\s+(\d+)\.\s*(.*)$")
-RE_KHOAN = re.compile(r"^(\d+)\.\s+(.*)$")
-RE_DIEM = re.compile(r"^([a-zđ](?:\.\d+)*)\)\s+(.*)$")  # bao phủ a) .. d.2.1)
 
-# Tái dùng heuristic tiêu đề Điều bị ngắt dòng (xem legal_structure_parser.py)
+# Tái dùng heuristic xử lý tiêu đề Điều bị PDF ngắt dòng giữa chừng
+# (xem giải thích chi tiết trong src/ingestion/legal_structure_parser.py)
 DANGLING_LAST_WORDS = {
     "của", "về", "cho", "tại", "theo", "và", "hoặc", "là", "được",
-    "có", "trong", "mà", "đến", "từ", "để", "với", "giảm", "khoản", "số",
-    "quản", "biện", "hướng",
+    "có", "trong", "mà", "đến", "từ", "để", "với", "giảm", "khoản", "số", "thuế",
 }
 
 
 def _is_title_dangling(title: str) -> bool:
     words = title.strip().split()
-    return bool(words) and words[-1] in DANGLING_LAST_WORDS
+    if not words:
+        return False
+    return words[-1].lower() in DANGLING_LAST_WORDS
 
 
-def parse_main_body(main_text: str) -> list:
-    """Trả về list[Chuong], mỗi Chuong chứa list[Dieu], mỗi Dieu chứa
-    list[Khoan], mỗi Khoan chứa list[Diem] (Diem có thể lồng nhiều cấp
-    nhưng được lưu PHẲNG theo ky_hieu, VD 'd.2.1' -- đủ dùng cho chunking,
-    không cần dựng cây lồng thật sự)."""
-    lines = main_text.split("\n")
-
-    chuong_list = []
-    current_chuong = None
-    current_dieu = None
-    current_khoan = None
-    current_diem = None
+def extract_prose_dieu(text: str) -> dict:
+    """Tách các Điều dạng văn xuôi (1, 2, 3, 5) thành dict {so_dieu: {ten, noi_dung}}.
+    Điều 4 (dạng bảng) sẽ bị bỏ qua ở đây, xử lý riêng ở phần 2."""
+    lines = text.split("\n")
+    result = {}
+    current_so = None
+    current_ten = None
     title_pending = False
-    expecting_chuong_title = False
-
-    def new_chuong(so):
-        c = {"so": so, "ten": "", "dieu_list": []}
-        chuong_list.append(c)
-        return c
-
-    for raw in lines:
-        line = raw.strip()
-        if not line:
-            continue
-
-        m_chuong = RE_CHUONG.match(line)
-        if m_chuong:
-            current_chuong = new_chuong(m_chuong.group(1))
-            expecting_chuong_title = True
-            current_dieu = current_khoan = current_diem = None
-            continue
-
-        if expecting_chuong_title:
-            # Dòng ngay sau "Chương X" là tiêu đề chương (in hoa)
-            current_chuong["ten"] = line
-            expecting_chuong_title = False
-            continue
-
-        m_dieu = RE_DIEU.match(line)
-        if m_dieu:
-            if current_chuong is None:
-                current_chuong = new_chuong("?")  # phòng hờ văn bản thiếu Chương
-            ten = m_dieu.group(2).strip()
-            current_dieu = {"so": m_dieu.group(1), "ten": ten, "khoan_list": [], "text_truc_tiep": ""}
-            current_chuong["dieu_list"].append(current_dieu)
-            title_pending = _is_title_dangling(ten)
-            current_khoan = current_diem = None
-            continue
-
-        if title_pending and current_dieu and not current_dieu["khoan_list"] and not current_dieu["text_truc_tiep"]:
-            current_dieu["ten"] += " " + line
-            title_pending = False
-            continue
-
-        m_khoan = RE_KHOAN.match(line) if current_dieu else None
-        if m_khoan:
-            current_khoan = {"so": m_khoan.group(1), "text": m_khoan.group(2).strip(), "diem_list": []}
-            current_dieu["khoan_list"].append(current_khoan)
-            current_diem = None
-            continue
-
-        m_diem = RE_DIEM.match(line) if current_khoan else None
-        if m_diem:
-            current_diem = {"ky_hieu": m_diem.group(1), "text": m_diem.group(2).strip()}
-            current_khoan["diem_list"].append(current_diem)
-            continue
-
-        # Dòng nối tiếp (do PDF ngắt dòng) -- nối vào cấp gần nhất đang mở
-        if current_diem:
-            current_diem["text"] += " " + line
-        elif current_khoan:
-            current_khoan["text"] += " " + line
-        elif current_dieu:
-            current_dieu["text_truc_tiep"] += " " + line
-
-    return chuong_list
-
-
-def validate_structure(chuong_list: list) -> dict:
-    all_dieu_so = [int(d["so"]) for c in chuong_list for d in c["dieu_list"] if d["so"].isdigit()]
-    lien_tuc = all_dieu_so == list(range(all_dieu_so[0], all_dieu_so[-1] + 1)) if all_dieu_so else True
-    return {
-        "tong_so_chuong": len(chuong_list),
-        "tong_so_dieu": len(all_dieu_so),
-        "danh_sach_so_dieu": all_dieu_so,
-        "so_dieu_lien_tuc": lien_tuc,
-        "chuong_va_so_dieu": [
-            {"chuong": c["so"], "ten_chuong": c["ten"], "so_luong_dieu": len(c["dieu_list"])}
-            for c in chuong_list
-        ],
-    }
-
-
-# ---------- Bước 3: Phụ lục I & II (có nội dung diễn giải thật) ----------
-
-def extract_phu_luc_I_II(phu_luc_text: str) -> dict:
-    """Cắt riêng đoạn Phụ lục I (ký hiệu mẫu hóa đơn) và Phụ lục II (ký hiệu
-    mẫu chứng từ điện tử) -- giữ nguyên văn xuôi vì đây là quy tắc thật sự
-    cần cho RAG (VD: giải mã ký hiệu hóa đơn "1C26TAA" nghĩa là gì)."""
-    idx_I = phu_luc_text.find("PHỤ LỤC I")
-    idx_II = phu_luc_text.find("PHỤ LỤC II")
-    idx_III = phu_luc_text.find("PHỤ LỤC III")
-
-    phu_luc_I = phu_luc_text[idx_I:idx_II].strip() if idx_II != -1 else ""
-    phu_luc_II = phu_luc_text[idx_II:idx_III].strip() if idx_III != -1 else ""
-
-    return {"phu_luc_I_raw": phu_luc_I, "phu_luc_II_raw": phu_luc_II}
-
-
-# ---------- Bước 4: danh mục mẫu biểu Phụ lục III/IV/V (chỉ bảng tham chiếu) ----------
-
-RE_MAU_SO_ALONE = re.compile(r"^\d{2}/[A-ZĐ][A-ZĐ0-9\-]*$")
-RE_MAU_SO_ALT_ALONE = re.compile(r"^[A-Z]{2,6}\d{1,3}$")           # VD: "CTT50"
-RE_MAU_SO_PREFIX = re.compile(r"^(\d{2}/[A-ZĐ][A-ZĐ0-9\-]*|[A-Z]{2,6}\d{1,3})\s+(\S.*)$")
-INDEX_TABLE_HEADERS = ("Tên hồ sơ, mẫu biểu", "Tên loại hóa đơn")
-
-
-def _extract_one_index_table(lines: list, start_idx: int) -> tuple:
-    """Parse 1 bảng danh mục bắt đầu từ start_idx (dòng header cột 2),
-    dừng khi gặp dòng 'Mẫu số:' (bắt đầu nội dung form thật).
-    Trả về (entries, chỉ_số_dòng_dừng).
-
-    Xử lý 2 kiểu dòng khác nhau tùy hàng trong bảng:
-    - Mã mẫu và tên TÁCH RIÊNG 2 dòng (phổ biến nhất)
-    - Mã mẫu và tên NẰM CHUNG 1 dòng (VD "01/TB-BSTT-NNT Thông báo...")
-      -- xảy ra khi tên hàng trước đó đủ ngắn để không tràn dòng, làm
-      PDF gộp luôn mã mẫu kế tiếp vào cùng dòng còn trống."""
-    entries = []
-    current_ma_mau = None
-    current_ten_parts = []
+    title_merge_count = 0
+    buffer = []
 
     def flush():
-        if current_ma_mau and current_ten_parts:
-            entries.append({
-                "ma_mau": current_ma_mau,
-                "ten_mau_bieu": " ".join(current_ten_parts).strip(),
-            })
+        if current_so is not None:
+            result[current_so] = {
+                "ten": current_ten.strip(),
+                "noi_dung": " ".join(buffer).strip(),
+            }
 
-    i = start_idx
-    while i < len(lines):
-        line = lines[i].strip()
-        if line.startswith("Mẫu số:") or line.startswith("(Kèm theo"):
+    for line in lines:
+        line = line.strip()
+        if not line:
+            continue
+        m = RE_DIEU.match(line)
+        if m:
             flush()
-            break
-        if line and line != "Mẫu số" and line not in INDEX_TABLE_HEADERS:
-            if RE_MAU_SO_ALONE.match(line) or RE_MAU_SO_ALT_ALONE.match(line):
-                flush()
-                current_ma_mau = line
-                current_ten_parts = []
-            else:
-                m_prefix = RE_MAU_SO_PREFIX.match(line)
-                if m_prefix:
-                    flush()
-                    current_ma_mau = m_prefix.group(1)
-                    current_ten_parts = [m_prefix.group(2)]
-                elif current_ma_mau:
-                    current_ten_parts.append(line)
-        i += 1
-    return entries, i
+            current_so = m.group(1)
+            current_ten = m.group(2)
+            title_pending = _is_title_dangling(current_ten)
+            title_merge_count = 0
+            buffer = []
+            continue
+        if title_pending and not buffer and title_merge_count < 3:
+            current_ten += " " + line
+            title_merge_count += 1
+            title_pending = _is_title_dangling(current_ten)
+            continue
+        if current_so == "4":
+            # Đang trong vùng Điều 4 (bảng) -- bỏ qua ở nhánh văn xuôi này
+            continue
+        if current_so is not None:
+            buffer.append(line)
+
+    flush()
+    result.pop("4", None)  # loại Điều 4 khỏi kết quả văn xuôi, xử lý riêng
+    return result
 
 
-def extract_mau_bieu_index(phu_luc_text: str) -> list:
-    """Trích danh mục 'Mẫu số -> Tên hồ sơ, mẫu biểu' cho CẢ 3 bảng danh
-    mục trong văn bản (đầu Phụ lục III, đầu Phụ lục IV, đầu Phụ lục V).
-    Mỗi Phụ lục có 1 bảng riêng, cần quét lần lượt từng bảng thay vì dừng
-    lại sau bảng đầu tiên."""
-    lines = phu_luc_text.split("\n")
-    all_entries = []
-    seen = set()
-    i = 0
-    while i < len(lines):
-        if lines[i].strip() in INDEX_TABLE_HEADERS:
-            table_entries, i = _extract_one_index_table(lines, i + 1)
-            for e in table_entries:
-                if e["ma_mau"] not in seen:
-                    seen.add(e["ma_mau"])
-                    all_entries.append(e)
+# ---------- Phần 2: Điều 4 -- bảng, parse bằng tọa độ chữ ----------
+
+RE_RATE = re.compile(r"T[ừùu]\s*(\d{2}/\d{2}/\d{4}):\s*(\d+)")
+
+
+def extract_table_dieu4(pdf_path: str) -> list:
+    """Trích bảng Biểu thuế TTĐB xe điện bằng cách CẮT RIÊNG 2 vùng cột
+    (mô tả xe / thuế suất) rồi để pdfplumber.extract_text() tự gom dòng
+    trong phạm vi hẹp của từng cột -- cách này ổn định hơn nhiều so với
+    tự viết thuật toán chaining theo top, vì trong bảng này khoảng cách
+    giữa các dòng thật (~10pt) gần bằng độ lệch baseline do dấu tiếng
+    Việt (~4-5pt), khiến clustering thủ công dễ gộp nhầm dòng."""
+    with pdfplumber.open(pdf_path) as pdf:
+        page = pdf.pages[TABLE_PAGE_INDEX]
+        left_col = page.crop((0, TABLE_TOP, COL_SPLIT_X, TABLE_BOTTOM))
+        right_col = page.crop((COL_SPLIT_X, TABLE_TOP, page.width, TABLE_BOTTOM))
+        left_text = left_col.extract_text() or ""
+        right_text = right_col.extract_text() or ""
+
+    # ---- Cột trái: tách thành 4 hàng, mỗi hàng bắt đầu bằng "Xe" ----
+    left_lines = [l for l in left_text.split("\n") if l.strip()]
+    row_descriptions = []
+    current = []
+    for line in left_lines:
+        line = line.strip()
+        if line.startswith("*"):
+            continue  # bỏ dòng phụ đề "* Xe có gắn động cơ..."
+        if line.startswith("Xe"):
+            if current:
+                row_descriptions.append(" ".join(current))
+            current = [line]
+        elif line == "-":
+            continue  # bỏ dấu gạch đầu dòng đứng riêng 1 dòng
         else:
-            i += 1
-    return all_entries
+            current.append(line.lstrip("- ").strip())
+    if current:
+        row_descriptions.append(" ".join(current))
+    row_descriptions = [re.sub(r"\s+", " ", d).strip() for d in row_descriptions]
+
+    # ---- Cột phải: mỗi 2 dòng "Từ dd/mm/yyyy: N" (+ dấu "-" xen giữa) = 1 hàng ----
+    rate_matches = RE_RATE.findall(right_text)  # list[(ngay, suat)] theo thứ tự đọc
+    rates_per_row = [rate_matches[i:i + 2] for i in range(0, len(rate_matches), 2)]
+
+    parsed_rows = []
+    for mo_ta, rates in zip(row_descriptions, rates_per_row):
+        parsed_rows.append({
+            "mo_ta_loai_xe": mo_ta,
+            "muc_thue_suat": [
+                {"tu_ngay": ngay, "thue_suat_percent": int(suat)}
+                for ngay, suat in rates
+            ],
+        })
+
+    return parsed_rows
 
 
 # ---------- Ghép kết quả ----------
 
 def main():
-    print(f"[1/5] Trích text thô từ {PDF_PATH} (PyMuPDF)...")
-    full_text = extract_raw_text(PDF_PATH)
-    print(f"      -> {len(full_text)} ký tự tổng")
+    print(f"[1/3] Trích văn xuôi (Điều 1, 2, 3, 5) từ {PDF_PATH} (PyMuPDF)...")
+    raw_text = extract_text_pymupdf(PDF_PATH)
+    dieu_van_xuoi = extract_prose_dieu(raw_text)
+    for so, d in dieu_van_xuoi.items():
+        print(f"      Điều {so}: {d['ten'][:70]}")
 
-    print("[2/5] Tách phần văn xuôi chính (Chương I-V) và Phụ lục...")
-    main_body, phu_luc_text = split_main_body_and_phu_luc(full_text)
-    print(f"      -> văn xuôi chính: {len(main_body)} ký tự, phụ lục: {len(phu_luc_text)} ký tự")
+    print(f"\n[2/3] Trích bảng Điều 4 bằng tọa độ chữ...")
+    bang_dieu4 = extract_table_dieu4(PDF_PATH)
+    print(f"      -> {len(bang_dieu4)} hàng dữ liệu")
+    for row in bang_dieu4:
+        print(f"      - {row['mo_ta_loai_xe'][:60]}... | {row['muc_thue_suat']}")
 
-    print("[3/5] Parse cấu trúc Chương/Điều/Khoản/Điểm...")
-    chuong_list = parse_main_body(main_body)
-    report = validate_structure(chuong_list)
-    print(f"      -> {json.dumps(report, ensure_ascii=False)}")
-
-    print("[4/5] Trích Phụ lục I, II (nội dung diễn giải) + danh mục mẫu biểu III-V...")
-    phu_luc_I_II = extract_phu_luc_I_II(phu_luc_text)
-    mau_bieu_index = extract_mau_bieu_index(phu_luc_text)
-    print(f"      -> Phụ lục I: {len(phu_luc_I_II['phu_luc_I_raw'])} ký tự")
-    print(f"      -> Phụ lục II: {len(phu_luc_I_II['phu_luc_II_raw'])} ký tự")
-    print(f"      -> {len(mau_bieu_index)} mẫu biểu trong danh mục III/IV/V")
-
-    print(f"[5/5] Ghi kết quả ra {OUT_PATH}...")
+    print(f"\n[3/3] Ghi kết quả ra {OUT_PATH}...")
     output = {
-        "doc_id": "tt_91_2026_ttbtc",
-        "so_hieu": "91/2026/TT-BTC",
-        "validate_structure": report,
-        "chuong_list": chuong_list,
-        "phu_luc_I_II": phu_luc_I_II,
-        "mau_bieu_index_III_IV_V": mau_bieu_index,
-        "ghi_chu": (
-            "Phụ lục III, IV, V chỉ được trích ở dạng danh mục (mã mẫu + tên); "
-            "nội dung form trống chi tiết KHÔNG được trích vì không có giá trị "
-            "nội dung cho RAG. Nếu cần, xử lý bổ sung riêng."
-        ),
+        "doc_id": "luat_09_2026_qh16",
+        "so_hieu": "09/2026/QH16",
+        "dieu_van_xuoi": dieu_van_xuoi,
+        "dieu_4_bang_thue_suat": {
+            "ten": "Sửa đổi, bổ sung quy định về xe có gắn động cơ dưới 24 chỗ "
+                   "chạy bằng pin tại điểm g mục 4 phần I của Biểu thuế tiêu thụ "
+                   "đặc biệt quy định tại khoản 1 Điều 8 của Luật Thuế tiêu thụ đặc biệt",
+            "hang_du_lieu": bang_dieu4,
+        },
     }
     Path(OUT_PATH).parent.mkdir(parents=True, exist_ok=True)
     with open(OUT_PATH, "w", encoding="utf-8") as f:

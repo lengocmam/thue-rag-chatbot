@@ -55,7 +55,7 @@ def _is_title_dangling(title: str) -> bool:
     words = title.strip().split()
     if not words:
         return False
-    last = words[-1]
+    last = words[-1].lower()
     return last in DANGLING_LAST_WORDS or bool(RE_TRAILING_DIGIT.search(last))
 
 

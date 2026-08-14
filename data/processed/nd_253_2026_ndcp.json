@@ -1,0 +1,126 @@
+{
+  "doc_id": "nd_253_2026_ndcp",
+  "loai_van_ban": "Nghị định",
+  "so_hieu": "253/2026/NĐ-CP",
+  "ten_van_ban": "Nghị định quy định chi tiết một số điều và biện pháp để tổ chức, hướng dẫn thi hành Luật Thuế thu nhập cá nhân",
+  "co_quan_ban_hanh": "Chính phủ",
+  "nguoi_ky": "Nguyễn Văn Thắng",
+  "chuc_vu_nguoi_ky": "Phó Thủ tướng (KT. Thủ tướng)",
+  "ngay_ban_hanh": "2026-06-30",
+  "noi_ban_hanh": "Hà Nội",
+
+  "can_cu_ban_hanh": [
+    "Luật Tổ chức Chính phủ số 63/2025/QH15",
+    "Luật Thuế thu nhập cá nhân số 109/2025/QH15 được sửa đổi, bổ sung bởi Luật số 09/2026/QH16"
+  ],
+
+  "vai_tro_trong_bo_du_lieu": "VĂN BẢN QUY ĐỊNH CHI TIẾT (cấp Nghị định) của Luật 109/2025/QH15 -- đây KHÔNG phải là văn bản sửa đổi số liệu như Nghị định 141/2026/NĐ-CP (sửa Điều 7 ngưỡng doanh thu), mà là Nghị định hướng dẫn thi hành toàn diện, thay thế nguyên cả khung Nghị định cũ (65/2013/NĐ-CP). Cần index đồng thời với Luật gốc vì phần lớn nội dung (thu nhập chịu thuế, miễn thuế, căn cứ tính thuế, khấu trừ...) NẰM Ở ĐÂY chứ không phải trong Luật -- Luật chỉ có khung, số liệu/công thức/thuế suất chi tiết đều do Nghị định này quy định.",
+
+  "hieu_luc": {
+    "ngay_hieu_luc_chung": "2026-07-01",
+    "ngoai_le": [
+      {
+        "pham_vi": "Quy định liên quan đến thu nhập từ kinh doanh, từ tiền lương, tiền công của cá nhân cư trú",
+        "ap_dung_tu": "kỳ tính thuế năm 2026",
+        "dieu_khoan_nguon": "Điều 69 khoản 1 điểm a"
+      },
+      {
+        "pham_vi": "Quy định về tiền ăn giữa ca, tiền ăn trưa (điểm g khoản 2 Điều 8)",
+        "ap_dung_tu": "2026-07-01",
+        "dieu_khoan_nguon": "Điều 69 khoản 1 điểm b"
+      }
+    ],
+    "dieu_khoan_nguon": "Điều 69",
+    "ghi_chu": "Khớp hoàn toàn với ngày hiệu lực và ngoại lệ đã ghi nhận trong metadata của Luật 109/2025/QH15 -- xác nhận nhất quán 3 văn bản (Luật, Nghị định, và Thông tư 87/2026 theo ghi chú trước đó)."
+  },
+
+  "van_ban_thay_the": [
+    {
+      "so_hieu": "65/2013/NĐ-CP",
+      "ten": "Nghị định quy định chi tiết một số điều của Luật Thuế TNCN và Luật sửa đổi, bổ sung một số điều của Luật Thuế TNCN (27/6/2013)",
+      "muc_do": "thay_the_toan_bo",
+      "dieu_khoan_nguon": "Điều 69 khoản 2"
+    }
+  ],
+
+  "van_ban_bai_bo_mot_phan": [
+    {
+      "so_hieu": "91/2014/NĐ-CP",
+      "pham_vi_bai_bo": "Điều 3",
+      "dieu_khoan_nguon": "Điều 69 khoản 3 điểm a"
+    },
+    {
+      "so_hieu": "12/2015/NĐ-CP",
+      "pham_vi_bai_bo": "Điều 2",
+      "dieu_khoan_nguon": "Điều 69 khoản 3 điểm b"
+    }
+  ],
+
+  "van_ban_lien_quan_chua_co_trong_bo_du_lieu": [
+    {"so_hieu": "68/2026/NĐ-CP", "noi_dung": "Chính sách thuế và quản lý thuế đối với hộ kinh doanh, cá nhân kinh doanh -- được dẫn chiếu trực tiếp tại Điều 45 (thuế TN kinh doanh) và Điều 68 (quyết toán, hoàn thuế đối với TN kinh doanh)"},
+    {"so_hieu": "181/2025/NĐ-CP", "noi_dung": "Chi tiết thi hành Luật Thuế GTGT -- dẫn chiếu tại Điều 21 khoản 3 để xác định 'sản phẩm chưa qua chế biến/sơ chế thông thường'"},
+    {"so_hieu": "353/2025/NĐ-CP", "noi_dung": "Hướng dẫn Luật Công nghiệp công nghệ số -- dẫn chiếu tại Điều 41, 42 (miễn thuế nhân lực công nghệ số/công nghệ cao chất lượng cao)"},
+    {"so_hieu": "265/2025, 267/2025, 268/2025/NĐ-CP", "noi_dung": "Hướng dẫn Luật Khoa học, công nghệ và đổi mới sáng tạo -- dẫn chiếu tại Điều 35-37 (miễn thuế thu nhập từ KHCN&ĐMST)"},
+    {"so_hieu": "349/2025/NĐ-CP", "noi_dung": "Chế độ với thành viên đội thể thao tập trung tập huấn -- dẫn chiếu tại Điều 8 khoản 4 điểm o"}
+  ],
+
+  "cau_truc_chuong_dieu": [
+    {"chuong": "I", "ten": "Những quy định chung", "dieu_tu": 1, "dieu_den": 5},
+    {"chuong": "II", "ten": "Thu nhập chịu thuế thu nhập cá nhân", "dieu_tu": 6, "dieu_den": 17},
+    {"chuong": "III", "ten": "Thu nhập được miễn thuế, giảm thuế", "dieu_tu": 18, "dieu_den": 44,
+      "muc": [
+        {"muc": "1", "ten": "Thu nhập được miễn thuế", "dieu_tu": 18, "dieu_den": 39},
+        {"muc": "2", "ten": "Các trường hợp miễn thuế, giảm thuế khác", "dieu_tu": 40, "dieu_den": 44}
+      ]},
+    {"chuong": "IV", "ten": "Căn cứ tính thuế đối với thu nhập của cá nhân cư trú", "dieu_tu": 45, "dieu_den": 62,
+      "muc": [
+        {"muc": "1", "ten": "Thu nhập từ kinh doanh", "dieu_tu": 45, "dieu_den": 45},
+        {"muc": "2", "ten": "Thu nhập từ tiền lương, tiền công", "dieu_tu": 46, "dieu_den": 51},
+        {"muc": "3", "ten": "Thu nhập từ đầu tư vốn, chuyển nhượng vốn", "dieu_tu": 52, "dieu_den": 56},
+        {"muc": "4", "ten": "Thu nhập từ chuyển nhượng BĐS, trúng thưởng, bản quyền, nhượng quyền TM, thừa kế, quà tặng và thu nhập khác", "dieu_tu": 57, "dieu_den": 62}
+      ]},
+    {"chuong": "V", "ten": "Căn cứ tính thuế đối với thu nhập của cá nhân không cư trú", "dieu_tu": 63, "dieu_den": 65},
+    {"chuong": "VI", "ten": "Kỳ tính thuế, khấu trừ thuế, khai thuế thay, nộp thuế thay, quyết toán thuế và hoàn thuế", "dieu_tu": 66, "dieu_den": 68},
+    {"chuong": "VII", "ten": "Điều khoản thi hành", "dieu_tu": 69, "dieu_den": 71},
+    {"phu_luc": "Danh mục ngành, nghề tính thuế TNCN theo thuế suất trên doanh thu đối với cá nhân cư trú có thu nhập từ kinh doanh"}
+  ],
+
+  "cac_con_so_quan_trong": [
+    {"dieu": "Điều 8 khoản 2 điểm g", "noi_dung": "Ngưỡng tiền ăn giữa ca/ăn trưa không tính vào TNCT", "gia_tri": "1,2 triệu đồng/người/tháng (phần vượt mới tính thuế)"},
+    {"dieu": "Điều 8 khoản 2 điểm h", "noi_dung": "Trần tiền thuê nhà trả thay tính vào TNCT", "gia_tri": "không vượt quá 15% tổng TNCT (chưa gồm tiền nhà) phát sinh tại đơn vị"},
+    {"dieu": "Điều 46 khoản 2 điểm a", "noi_dung": "Trần khoản đóng bảo hiểm hưu trí bổ sung/hưu trí tự nguyện/nhân thọ được trừ khi tính thu nhập tính thuế", "gia_tri": "tối đa 3 triệu đồng/tháng (tổng các hình thức, gồm cả phần NSDLĐ đóng và NLĐ tự đóng)"},
+    {"dieu": "Điều 49 khoản 2 điểm a", "noi_dung": "Trần chi phí y tế được giảm trừ (ngoài giảm trừ gia cảnh)", "gia_tri": "tối đa 23 triệu đồng/năm"},
+    {"dieu": "Điều 49 khoản 2 điểm b", "noi_dung": "Trần chi phí giáo dục - đào tạo được giảm trừ", "gia_tri": "tối đa 24 triệu đồng/năm"},
+    {"dieu": "Điều 50 khoản 2", "noi_dung": "Khấu trừ thuế với HĐ <3 tháng hoặc không HĐ", "gia_tri": "10% trên thu nhập nếu mức chi trả ≥5 triệu đồng/lần"},
+    {"dieu": "Điều 51 khoản 1 điểm b", "noi_dung": "Ngưỡng thu nhập vãng lai không phải quyết toán (đã khấu trừ 10%)", "gia_tri": "bình quân tháng trong năm không quá 15 triệu đồng"},
+    {"dieu": "Điều 52 khoản 1", "noi_dung": "Thuế suất thu nhập từ đầu tư vốn", "gia_tri": "5%"},
+    {"dieu": "Điều 53 khoản 1", "noi_dung": "Thuế suất chuyển nhượng vốn (xác định được giá mua) / không xác định được giá mua", "gia_tri": "20% trên (giá bán - giá mua - chi phí) / 2% trên giá chuyển nhượng nếu không xác định được giá mua",
+      "TINH_TRANG": "Khớp với Điều 13 khoản 1, 23 khoản 1 của Luật 109/2025 về trường hợp 2% -- nhưng Luật chỉ nêu mức 2%, còn mức 20% trên thu nhập ròng khi xác định được giá mua là ĐIỂM MỚI/CHI TIẾT chỉ có ở Nghị định này, không có trong Luật gốc."},
+    {"dieu": "Điều 54 khoản 1", "noi_dung": "Thuế suất chuyển nhượng chứng khoán", "gia_tri": "0,1% trên giá chuyển nhượng"},
+    {"dieu": "Điều 57 khoản 1", "noi_dung": "Thuế suất chuyển nhượng bất động sản", "gia_tri": "2% trên giá chuyển nhượng"},
+    {"dieu": "Điều 58 khoản 1-2", "noi_dung": "Thuế suất trúng thưởng", "gia_tri": "10% trên phần vượt 20 triệu đồng/lần"},
+    {"dieu": "Điều 59 khoản 1-2", "noi_dung": "Thuế suất tiền bản quyền", "gia_tri": "5% trên phần vượt 20 triệu đồng/lần"},
+    {"dieu": "Điều 60 khoản 1-2", "noi_dung": "Thuế suất nhượng quyền thương mại", "gia_tri": "5% trên phần vượt 20 triệu đồng/lần"},
+    {"dieu": "Điều 61 khoản 1-2", "noi_dung": "Thuế suất thừa kế, quà tặng", "gia_tri": "10% trên phần vượt 20 triệu đồng/lần",
+      "TINH_TRANG": "CẢNH BÁO GROUND-TRUTH: metadata của Luật 109/2025/QH15 (trường Điều 15,26) ghi ngưỡng 20 triệu 'đối với cá nhân không cư trú', dễ khiến retrieval hiểu nhầm là chỉ áp dụng cho cá nhân không cư trú. Nghị định 253 tại Điều 61 áp dụng ngưỡng 20 triệu này CHO CẢ CÁ NHÂN CƯ TRÚ (Chương IV). Cần sửa/làm rõ lại ghi chú ở văn bản Luật gốc khi làm câu hỏi ground-truth."},
+    {"dieu": "Điều 62 khoản 1-2", "noi_dung": "Thuế suất thu nhập khác", "gia_tri": "5% trên phần vượt 20 triệu đồng/lần (khoản 1,2,3 Điều 16) hoặc 0,1% trên giá chuyển nhượng (khoản 4 Điều 16 - tài sản số)"},
+    {"dieu": "Điều 63 khoản 1", "noi_dung": "Thuế thu nhập kinh doanh của cá nhân KHÔNG cư trú", "gia_tri": "doanh thu x thuế suất theo khoản 3 Điều 20 Luật TNCN",
+      "TINH_TRANG": "Bẫy tiềm năng: Phụ lục thuế suất theo ngành nghề đính kèm Nghị định này ghi tiêu đề 'ĐỐI VỚI CÁ NHÂN CƯ TRÚ' -- không rõ ràng phụ lục này có áp dụng chung cho cá nhân không cư trú tại Điều 63 hay không; cần đối chiếu thêm văn bản hướng dẫn của Bộ Tài chính."},
+    {"dieu": "Điều 64 khoản 1", "noi_dung": "Thuế suất tiền lương, tiền công của cá nhân KHÔNG cư trú", "gia_tri": "20% trên tổng thu nhập (không có biểu lũy tiến, khác hẳn cá nhân cư trú)"},
+    {"dieu": "Điều 44", "noi_dung": "Giảm thuế lợi tức nhà đầu tư từ quỹ đầu tư chứng khoán/BĐS", "gia_tri": "giảm 50% thuế TNCN trong 5 năm, từ 01/7/2026 đến hết 30/6/2031"},
+    {"dieu": "Điều 41, 42", "noi_dung": "Miễn thuế nhân lực công nghiệp công nghệ số / công nghệ cao chất lượng cao", "gia_tri": "miễn thuế 5 năm liên tục kể từ tháng phát sinh thu nhập được miễn"}
+  ],
+
+  "diem_can_luu_y_cho_ground_truth": [
+    "Nghị định này là nơi chứa GẦN NHƯ TOÀN BỘ số liệu/công thức/thuế suất chi tiết mà Luật 109/2025/QH15 chỉ nêu khung và ghi 'Chính phủ quy định chi tiết' -- danh sách đầy đủ các Điều được chi tiết hóa nằm ở Điều 1 khoản 1 của chính Nghị định này (khoản 4 Điều 2; điểm c khoản 2, khoản 11 Điều 3; khoản 22 Điều 4; khoản 5,6 Điều 5; Điều 6; khoản 5 Điều 7; khoản 2 Điều 8; khoản 2,4 Điều 11; khoản 4 Điều 12; khoản 4 Điều 13; khoản 3 Điều 14; khoản 4 Điều 18; khoản 4 Điều 19; khoản 3 Điều 23; khoản 2 Điều 24; khoản 3 Điều 27; khoản 5 Điều 28). Đây là bản đồ tra cứu quan trọng nhất để nối Luật <-> Nghị định.",
+    "Chương III Mục 1 (Điều 18-39) liệt kê ~22 loại thu nhập miễn thuế rất chi tiết, mỗi loại có điều kiện riêng (VD: nhà đất duy nhất - Điều 19 có 3 điều kiện a,b,c; miễn thuế công nghệ số - Điều 41 có thời hạn 5 năm) -- nguồn rất tốt cho câu hỏi bẫy 'trường hợp X có được miễn không', đặc biệt các điều kiện phụ dễ bị bỏ sót khi trả lời nhanh.",
+    "Phân biệt RÕ RÀNG 2 hệ thống thuế suất: cá nhân CƯ TRÚ dùng thuế suất cố định theo loại thu nhập (đầu tư vốn 5%, chuyển nhượng vốn 20%/2%, BĐS 2%...) trong khi cá nhân KHÔNG CƯ TRÚ có công thức khác hẳn cho tiền lương (20% flat, không lũy tiến) dù các loại thu nhập khác (đầu tư vốn, BĐS, thừa kế...) lại DÙNG CHUNG công thức với cá nhân cư trú theo Điều 65 khoản 1 (dẫn chiếu Điều 52-62) -- đây là điểm dễ gây nhầm lẫn/bẫy vì không phải mọi loại thu nhập đều tách biệt 2 hệ thống.",
+    "Trần 20 triệu đồng áp dụng lặp lại ở nhiều loại thu nhập khác nhau (trúng thưởng Điều 58, bản quyền Điều 59, nhượng quyền TM Điều 60, thừa kế/quà tặng Điều 61, thu nhập khác Điều 62) nhưng KHÔNG áp dụng đồng nhất -- ví dụ Điều 62 khoản 2 (chuyển nhượng tài sản số) lại tính theo % trên giá chuyển nhượng (0,1%) chứ không phải trên phần vượt 20 triệu. Cần cẩn thận khi thiết kế câu hỏi so sánh giữa các loại thu nhập.",
+    "Điều 69 (hiệu lực) và Điều 70 (chuyển tiếp) có quy định riêng cho trường hợp đã kê khai/nộp thuế TN tiền lương kỳ 2026 TRƯỚC ngày Nghị định có hiệu lực (01/01/2026 đến trước 01/7/2026) -- không phải nộp lại hồ sơ khai thuế tháng/quý mà điều chỉnh vào hồ sơ quyết toán năm 2026. Đây là quy tắc chuyển tiếp dễ bị hỏi nhầm là phải khai lại."
+  ],
+
+  "file_goc": "253-2026NĐCP.pdf",
+  "nguon_thu_thap": "user_upload (bản in từ about:blank, có watermark thuvienphapluat.vn, đóng dấu hiệu lực 'Đã biết')",
+  "ngay_thu_thap": "2026-08-11",
+  "trang_thai_kiem_chung": "chua_doi_chieu_ban_goc_vbpl_hoac_cong_bao"
+}

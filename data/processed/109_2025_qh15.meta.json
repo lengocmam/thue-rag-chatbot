@@ -1,0 +1,101 @@
+{
+  "doc_id": "luat_109_2025_qh15",
+  "loai_van_ban": "Luật",
+  "so_hieu": "109/2025/QH15",
+  "ten_van_ban": "Luật Thuế thu nhập cá nhân",
+  "co_quan_ban_hanh": "Quốc hội",
+  "nguoi_ky": "Trần Thanh Mẫn",
+  "chuc_vu_nguoi_ky": "Chủ tịch Quốc hội",
+  "ngay_thong_qua": "2025-12-10",
+  "ky_hop": "Kỳ họp thứ 10, Quốc hội khóa XV",
+  "noi_ban_hanh": null,
+
+  "vai_tro_trong_bo_du_lieu": "VĂN BẢN GỐC (root document) -- là luật nền mà Thông tư 87/2026/TT-BTC, Luật 09/2026/QH16, và Nghị định 141/2026/NĐ-CP đều dẫn chiếu/sửa đổi. Nên xử lý và index văn bản này TRƯỚC hoặc đồng thời khi xây dựng metadata quan hệ giữa các văn bản, vì các văn bản kia đều giả định người đọc đã có ngữ cảnh từ đây.",
+
+  "hieu_luc": {
+    "ngay_hieu_luc_chung": "2026-07-01",
+    "ngoai_le": [
+      {
+        "pham_vi": "Quy định liên quan đến thu nhập từ kinh doanh, tiền lương, tiền công của cá nhân cư trú",
+        "ap_dung_tu": "kỳ tính thuế năm 2026",
+        "dieu_khoan_nguon": "Khoản 2 Điều 29"
+      }
+    ],
+    "dieu_khoan_nguon": "Điều 29",
+    "ghi_chu": "Khớp với thông tin đã ghi nhận trong metadata của Thông tư 87/2026/TT-BTC -- xác nhận nhất quán giữa 2 văn bản."
+  },
+
+  "van_ban_thay_the": [
+    {
+      "so_hieu": "04/2007/QH12",
+      "ten": "Luật Thuế thu nhập cá nhân (cũ)",
+      "ghi_chu": "Đã qua nhiều lần sửa đổi bởi các Luật số 26/2012/QH13, 71/2014/QH13, 31/2024/QH15, 43/2024/QH15, 48/2024/QH15, 56/2025/QH15, 71/2025/QH15, 93/2025/QH15 -- TOÀN BỘ hết hiệu lực kể từ ngày Luật 109/2025/QH15 có hiệu lực (01/7/2026), riêng phần thu nhập kinh doanh/lương/công hết hiệu lực từ kỳ tính thuế 2026",
+      "muc_do": "thay_the_toan_bo"
+    }
+  ],
+
+  "quan_he_uu_tien_dac_biet": {
+    "mo_ta": "Khoản 4 Điều 29: nếu có quy định khác nhau về ưu đãi thuế giữa Luật này với Luật Thủ đô, nghị quyết của Quốc hội, và điểm h khoản 8 Điều 10 Luật Tổ chức Chính phủ, thì áp dụng theo các văn bản đó; nếu Luật này ưu đãi hơn thì người nộp thuế được chọn mức có lợi nhất.",
+    "ghi_chu": "Đây là quy tắc xung đột pháp luật (conflict-of-law rule) hiếm gặp -- đáng chú ý cho câu hỏi khó/câu hỏi bẫy vì đòi hỏi so sánh nhiều nguồn luật cùng lúc, ngoài phạm vi bộ dữ liệu hiện có (chưa có Luật Thủ đô, Luật Tổ chức Chính phủ)."
+  },
+
+  "cau_truc_chuong_dieu": [
+    {"chuong": "I", "ten": "Những quy định chung", "dieu_tu": 1, "dieu_den": 6},
+    {"chuong": "II", "ten": "Căn cứ tính thuế đối với cá nhân cư trú", "dieu_tu": 7, "dieu_den": 19},
+    {"chuong": "III", "ten": "Căn cứ tính thuế đối với cá nhân không cư trú", "dieu_tu": 20, "dieu_den": 28},
+    {"chuong": "IV", "ten": "Điều khoản thi hành", "dieu_tu": 29, "dieu_den": 29}
+  ],
+
+  "cac_con_so_quan_trong": [
+    {
+      "dieu": "Điều 7 khoản 1",
+      "noi_dung": "Ngưỡng doanh thu cá nhân kinh doanh không phải nộp thuế TNCN",
+      "gia_tri_trong_van_ban_goc": "500 triệu đồng/năm",
+      "TINH_TRANG": "ĐÃ BỊ SỬA ĐỔI -- Luật 09/2026/QH16 Điều 1 đổi cụm này thành 'mức quy định của Chính phủ' (bỏ số cụ thể); sau đó Nghị định 141/2026/NĐ-CP Điều 1 khoản 1 quy định cụ thể là '01 tỷ đồng'. Đây là ví dụ điển hình về chuỗi sửa đổi 3 tầng (Luật gốc -> Luật sửa đổi -> Nghị định quy định chi tiết) mà retrieval cần lần đúng văn bản MỚI NHẤT (Nghị định 141/2026) chứ không phải văn bản này để trả lời đúng.",
+      "gia_tri_hien_hanh": "01 tỷ đồng/năm (theo Nghị định 141/2026/NĐ-CP)"
+    },
+    {
+      "dieu": "Điều 9 khoản 2",
+      "noi_dung": "Biểu thuế lũy tiến từng phần (5 bậc) áp dụng cho thu nhập từ tiền lương, tiền công",
+      "gia_tri": "Bậc 1: đến 10tr/tháng - 5%; Bậc 2: 10-30tr - 10%; Bậc 3: 30-60tr - 20%; Bậc 4: 60-100tr - 30%; Bậc 5: trên 100tr - 35%",
+      "TINH_TRANG": "Chưa thấy văn bản nào trong bộ dữ liệu hiện có sửa đổi mục này -- coi là hiện hành cho đến khi có thông tin khác."
+    },
+    {
+      "dieu": "Điều 10 khoản 1",
+      "noi_dung": "Mức giảm trừ gia cảnh",
+      "gia_tri": "Người nộp thuế: 15,5 triệu đồng/tháng (186 triệu/năm); mỗi người phụ thuộc: 6,2 triệu đồng/tháng",
+      "TINH_TRANG": "Khớp với thông tin đã có trong metadata dự án trước đó (memory: '15,5 triệu và 6,2 triệu') -- xác nhận nhất quán."
+    },
+    {
+      "dieu": "Điều 13, 23 khoản 1",
+      "noi_dung": "Thuế suất chuyển nhượng vốn (không xác định được giá mua)",
+      "gia_tri": "2% trên giá chuyển nhượng"
+    },
+    {
+      "dieu": "Điều 13, 23 khoản 2",
+      "noi_dung": "Thuế suất chuyển nhượng chứng khoán",
+      "gia_tri": "0,1% trên giá chuyển nhượng"
+    },
+    {
+      "dieu": "Điều 14, 24",
+      "noi_dung": "Thuế suất chuyển nhượng bất động sản",
+      "gia_tri": "2% trên giá chuyển nhượng"
+    },
+    {
+      "dieu": "Điều 15, 26",
+      "noi_dung": "Thuế suất trúng thưởng / thừa kế / quà tặng",
+      "gia_tri": "10% (trên phần vượt 20 triệu đồng đối với cá nhân không cư trú)"
+    }
+  ],
+
+  "diem_can_luu_y_cho_ground_truth": [
+    "Điều 7 quy định RIÊNG cho cá nhân CƯ TRÚ; Điều 20 quy định thuế kinh doanh cho cá nhân KHÔNG CƯ TRÚ với thuế suất khác hẳn (theo % trực tiếp trên doanh thu, không trừ chi phí) -- câu hỏi cần phân biệt rõ 2 nhóm đối tượng.",
+    "Điều 4 (thu nhập miễn thuế) có 22 khoản rất dài, dễ bị hỏi dạng 'trường hợp X có được miễn thuế không' -- nguồn tốt cho câu hỏi thật/bẫy xen kẽ.",
+    "Nhiều Điều kết thúc bằng 'Chính phủ quy định chi tiết Điều này' (Điều 2,3,4,7,10,11,12,13,14,18,19,23,24,27,28) -- các Điều này chỉ có KHUNG, chi tiết thực thi nằm ở Nghị định/Thông tư khác. Đây là pattern lặp lại nhiều lần, quan trọng để thiết kế câu hỏi bẫy 'con số cụ thể là bao nhiêu' khi Luật không tự nêu."
+  ],
+
+  "file_goc": "109-2025-QH15-665870.pdf",
+  "nguon_thu_thap": "user_upload (bản có watermark thuvienphapluat.vn)",
+  "ngay_thu_thap": "2026-08-11",
+  "trang_thai_kiem_chung": "chua_doi_chieu_ban_goc_vbpl_hoac_cong_bao"
+}
