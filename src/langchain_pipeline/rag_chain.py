@@ -27,10 +27,16 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 
+# Đổi tên model Ollama ở đây nếu muốn dùng model khác llama3.1 (VD:
+# "qwen2.5", "qwen2.5:7b"...) -- không cần sửa sâu trong hàm get_llm().
+OLLAMA_MODEL_NAME = "llama3.1"
+OPENAI_MODEL_NAME = "gpt-4o-mini"
+
 sys.path.insert(0, str(Path(__file__).parent))
 from build_langchain_retrievers import (
     load_chunks_as_documents, build_bm25_retriever, build_hybrid_retriever, STRATEGY,
 )
+from offtopic_gate import OffTopicGate, REFUSAL_MESSAGE
 
 SYSTEM_PROMPT = """Bạn là trợ lý tư vấn thuế, CHỈ trả lời dựa trên các đoạn văn bản pháp luật được cung cấp dưới đây. Tuân thủ nghiêm ngặt các quy tắc sau:
 
@@ -67,11 +73,11 @@ def get_llm():
     'OpenAI -> Ollama -> tổng hợp offline' đã thiết kế từ đầu dự án."""
     if os.environ.get("OPENAI_API_KEY"):
         from langchain_openai import ChatOpenAI
-        return ChatOpenAI(model="gpt-4o-mini", temperature=0)
+        return ChatOpenAI(model=OPENAI_MODEL_NAME, temperature=0)
 
     try:
         from langchain_ollama import ChatOllama
-        return ChatOllama(model="llama3.1", temperature=0)
+        return ChatOllama(model=OLLAMA_MODEL_NAME, temperature=0)
     except Exception:
         pass
 
@@ -97,6 +103,29 @@ def build_rag_chain(retriever, llm=None):
     return chain
 
 
+def answer_question(query: str, rag_chain, gate: "OffTopicGate | None" = None) -> dict:
+    """Hàm điều phối cấp cao -- ĐÂY LÀ PHẦN THỂ HIỆN 'TƯ DUY AGENT': hệ
+    thống tự quyết định bước tiếp theo dựa trên kết quả bước trước, thay
+    vì luôn đi thẳng một đường retrieve -> generate.
+
+    Luồng quyết định:
+        1. Cổng lọc off-topic chấm điểm câu hỏi.
+        2. NẾU ngoài phạm vi -> DỪNG NGAY, trả lời từ chối cố định,
+           KHÔNG gọi retriever/LLM (tiết kiệm token, đây là lý do chính
+           để có cổng lọc thay vì để LLM tự nhận ra và từ chối).
+        3. NẾU trong phạm vi -> đi tiếp toàn bộ chain RAG như bình thường."""
+    if gate is not None:
+        in_scope, confidence = gate.is_in_scope(query)
+        if not in_scope:
+            return {
+                "answer": REFUSAL_MESSAGE, "gated": True,
+                "gate_confidence": confidence, "llm_called": False,
+            }
+
+    answer = rag_chain.invoke(query)
+    return {"answer": answer, "gated": False, "llm_called": True}
+
+
 def main():
     print(f"=== Dựng RAG chain đầy đủ (chiến lược {STRATEGY}) ===")
     documents = load_chunks_as_documents(STRATEGY)
@@ -113,11 +142,33 @@ def main():
     print("Đang khởi tạo LLM...")
     rag_chain = build_rag_chain(hybrid_retriever)
 
-    cau_hoi = "Ngưỡng doanh thu bao nhiêu thì hộ kinh doanh không phải nộp thuế thu nhập cá nhân?"
-    print(f"\nCâu hỏi: {cau_hoi}\n")
-    answer = rag_chain.invoke(cau_hoi)
-    print("Trả lời:")
-    print(answer)
+    print("Đang nạp cổng lọc off-topic...")
+    try:
+        gate = OffTopicGate()
+    except FileNotFoundError:
+        print("  !! Chưa có model cổng lọc (chạy scripts/train_offtopic_gate.py trước) "
+              "-- bỏ qua bước gate, coi mọi câu hỏi đều trong phạm vi.")
+        gate = None
+
+    test_queries = [
+        "Ngưỡng doanh thu bao nhiêu thì hộ kinh doanh không phải nộp thuế thu nhập cá nhân?",
+        "Hôm nay thời tiết thế nào?",  # câu hỏi bẫy off-topic, kiểm tra gate có chặn đúng không
+    ]
+    for cau_hoi in test_queries:
+        print(f"\nCâu hỏi: {cau_hoi}")
+
+        # --- DEBUG: in ra context THẬT SỰ được đưa vào prompt, để biết
+        # lỗi (nếu có) nằm ở retriever (không tìm ra đúng chunk) hay ở LLM
+        # (có context đúng nhưng vẫn từ chối trả lời) ---
+        retrieved_docs = hybrid_retriever.invoke(cau_hoi)
+        print(f"  [DEBUG] Retriever trả về {len(retrieved_docs)} chunk:")
+        for i, doc in enumerate(retrieved_docs, 1):
+            print(f"    #{i} [{doc.metadata['chunk_id']}] {doc.metadata['so_hieu_van_ban']} "
+                  f"- {doc.metadata['dieu']} {doc.metadata.get('khoan') or ''}")
+
+        result = answer_question(cau_hoi, rag_chain, gate)
+        print(f"  [gated={result['gated']}, llm_called={result['llm_called']}]")
+        print(f"  Trả lời: {result['answer']}")
 
 
 if __name__ == "__main__":

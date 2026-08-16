@@ -1,0 +1,1149 @@
+{
+  "doc_id": "luat_109_2025_qh15",
+  "so_hieu": "109/2025/QH15",
+  "nguon_trich_xuat": "OCR (tesseract, vie) -- PDF gốc là ảnh scan, không có text layer",
+  "canh_bao_chat_luong": "Văn bản này được OCR, KHÔNG phải trích text trực tiếp như 4 văn bản trước. OCR có tỷ lệ lỗi chính tả nhất định (quan sát được: nhầm dấu thanh, nhầm chữ cái tương tự hình dạng). Cấu trúc Điều/Khoản đáng tin cậy (số + dấu chấm rõ ràng), nhưng nội dung câu chữ CẦN đối chiếu lại bản gốc trước khi dùng làm ground-truth chính thức.",
+  "validate_structure": {
+    "tong_so_chuong": 4,
+    "tong_so_dieu": 29,
+    "danh_sach_so_dieu": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29
+    ],
+    "so_dieu_lien_tuc": true,
+    "chuong_va_so_dieu": [
+      {
+        "chuong": "I",
+        "ten_chuong": "NHƯỮNG QUY ĐỊNH CHUNG",
+        "so_luong_dieu": 6
+      },
+      {
+        "chuong": "II",
+        "ten_chuong": "CĂN CỨ TÍNH THUÉ ĐÓI VỚI CÁ NHÂN CƯ TRÚ",
+        "so_luong_dieu": 13
+      },
+      {
+        "chuong": "III",
+        "ten_chuong": "CĂN CỨ TÍNH THUÉ ĐÓI VỚI CÁ NHÂN KHÔNG CƯ TRÚ",
+        "so_luong_dieu": 9
+      },
+      {
+        "chuong": "IV",
+        "ten_chuong": "ĐIÊU KHOẢN THỊ HÀNH",
+        "so_luong_dieu": 1
+      }
+    ]
+  },
+  "chuong_list": [
+    {
+      "so": "I",
+      "ten": "NHƯỮNG QUY ĐỊNH CHUNG",
+      "dieu_list": [
+        {
+          "so": "1",
+          "ten": "Phạm vi điều chỉnh",
+          "khoan_list": [],
+          "text_truc_tiep": "Luật này quy định về người nộp thuế, thu nhập chịu thuế, thu nhập được miễn thuế, giảm thuế và căn cứ tính thuế thu nhập cá nhân."
+        },
+        {
+          "so": "2",
+          "ten": "Người nộp thuế",
+          "khoan_list": [
+            {
+              "so": "1",
+              "text": "Người nộp thuế thu nhập cá nhân là cá nhân cư trú có thu nhập chịu thuế quy định tại Điều 3 của Luật này phát sinh trong và ngoài lãnh thổ Việt Nam và cá nhân không cư trú có thu nhập chịu thuế quy định tại Điều 3 của Luật này phát sinh trong lãnh thô Việt Nam.",
+              "diem_list": []
+            },
+            {
+              "so": "2",
+              "text": "Cá nhân cư trú là người đáp ứng một trong các điều kiện sau đây:",
+              "diem_list": [
+                {
+                  "ky_hieu": "a",
+                  "text": "Có mặt tại Việt Nam từ 183 ngày trở lên tính trong 01 năm dương lịch hoặc tính theo 12 tháng liên tục kê từ ngày đầu tiên có mặt tại Việt Nam;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "text": "Có nơi ở thường xuyên tại Việt Nam, bao gồm có nơi ở đăng ký thường trú hoặc có nhà thuê đề ở tại Việt Nam theo hợp đồng thuê có thời hạn."
+                }
+              ]
+            },
+            {
+              "so": "3",
+              "text": "Cá nhân không cư trú là người không đáp ứng điều kiện quy định tại khoản 2 Điều này.",
+              "diem_list": []
+            },
+            {
+              "so": "4",
+              "text": "Chính phủ quy định chỉ tiết Điều này.",
+              "diem_list": []
+            }
+          ],
+          "text_truc_tiep": ""
+        },
+        {
+          "so": "3",
+          "ten": "Thu nhập chịu thuế Thu nhập chịu thuế thu nhập cá nhân gồm các loại thu nhập sau đây, trừ",
+          "khoan_list": [
+            {
+              "so": "1",
+              "text": "Thu nhập từ kinh doanh, bao gồm:",
+              "diem_list": [
+                {
+                  "ky_hieu": "a",
+                  "text": "Thu nhập từ hoạt động sản xuất, kinh doanh hàng hoá, dịch vụ; 2"
+                },
+                {
+                  "ky_hieu": "b",
+                  "text": "Thu nhập từ hoạt động hành nghề độc lập của cá nhân có giấy phép hoặc chứng chỉ hành nghề theo quy định của pháp luật;"
+                },
+                {
+                  "ky_hieu": "c",
+                  "text": "Thu nhập từ hoạt động đại lý, môi giới, hợp tác kinh doanh với tổ chức;"
+                },
+                {
+                  "ky_hieu": "d",
+                  "text": "Thu nhập từ hoạt động kinh doanh thương mại điện tử, kinh doanh dựa trên nên tảng số."
+                }
+              ]
+            },
+            {
+              "so": "2",
+              "text": "Thu nhập từ tiền lương, tiền công, bao gồm:",
+              "diem_list": [
+                {
+                  "ky_hieu": "a",
+                  "text": "Tiền lương, tiền công và các khoản có tính chất tiền lương, tiền công:"
+                },
+                {
+                  "ky_hieu": "b",
+                  "text": "Tiền thù lao, các khoản lợi ích bằng tiền hoặc không bằng tiền dưới mọi hình thức;"
+                },
+                {
+                  "ky_hieu": "c",
+                  "text": "Các khoản phụ cấp, trợ cấp, thu nhập khác trừ các khoản: phụ cấp, trợ cấp theo quy định của pháp luật về ưu đãi người có công; phụ cấp quốc phòng, an ninh; phụ cấp độc hại, nguy hiểm đối với ngành, nghề hoặc công việc ở nơi làm việc có yếu tố độc hại, nguy hiểm; phụ cấp thu hút, phụ cấp khu vực theo quy định của pháp luật; phụ cấp, trợ cấp, sinh hoạt phí do cơ quan Việt Nam ở nước ngoài chi trả; trợ cấp khó khăn đột xuất, trợ cấp tai nạn lao động, bệnh nghề nghiệp, trợ cấp một lần khi sinh con hoặc nhận nuôi con nuôi, trợ cấp do suy giảm khả năng lao động, trợ cấp hưu trí một lần, trợ cấp tuất hàng tháng và các khoản trợ cấp khác theo quy định của pháp luật về bảo hiểm xã hội; trợ cấp thôi việc, trợ cấp mất việc làm; trợ cấp mang tính chất bảo trợ xã hội và các khoản phụ cấp, trợ cấp, thu nhập khác không mang tính chất tiền lương, tiền công do Chính phủ quy định."
+                }
+              ]
+            },
+            {
+              "so": "3",
+              "text": "Thu nhập từ đầu tư vốn, bao gồm:",
+              "diem_list": [
+                {
+                  "ky_hieu": "a",
+                  "text": "Tiền lãi cho vay;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "text": "Lợi tức cổ phần;"
+                },
+                {
+                  "ky_hieu": "c",
+                  "text": "Thu nhập từ đầu tư vốn dưới các hình thức khác."
+                }
+              ]
+            },
+            {
+              "so": "4",
+              "text": "Thu nhập từ chuyển nhượng vốn, bao gồm:",
+              "diem_list": [
+                {
+                  "ky_hieu": "a",
+                  "text": "Thu nhập từ chuyển nhượng phần vốn trong các tô chức kinh tế;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "text": "Thu nhập từ chuyên nhượng chứng khoán;"
+                },
+                {
+                  "ky_hieu": "c",
+                  "text": "Thu nhập từ chuyển nhượng vốn dưới các hình thức khác."
+                }
+              ]
+            },
+            {
+              "so": "5",
+              "text": "Thu nhập từ chuyên nhượng bắt động sản, bao gồm:",
+              "diem_list": [
+                {
+                  "ky_hieu": "a",
+                  "text": "Thu nhập từ chuyền nhượng quyền sử dụng đất và tài sản gắn liền với đất;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "text": "Thu nhập từ chuyên nhượng quyền sở hữu hoặc sử dụng nhà ở;"
+                },
+                {
+                  "ky_hieu": "c",
+                  "text": "Thu nhập từ chuyển nhượng quyền thuê đất, quyền thuê mặt nước; 3"
+                },
+                {
+                  "ky_hieu": "d",
+                  "text": "Các khoản thu nhập khác nhận được từ chuyển nhượng bất động sản dưới mọi hình thức."
+                }
+              ]
+            },
+            {
+              "so": "6",
+              "text": "Thu nhập từ trúng thưởng, bao gồm:",
+              "diem_list": [
+                {
+                  "ky_hieu": "a",
+                  "text": "Trúng thưởng xổ số;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "text": "Trúng thưởng trong các hình thức khuyến mại;"
+                },
+                {
+                  "ky_hieu": "c",
+                  "text": "Trúng thưởng trong các hình thức đặt cược;"
+                },
+                {
+                  "ky_hieu": "d",
+                  "text": "Trúng thưởng trong các trò chơi, cuộc thi có thưởng và các hình thức trúng thưởng khác, trừ trúng thưởng trong ca-si-no."
+                }
+              ]
+            },
+            {
+              "so": "7",
+              "text": "Thu nhập từ tiền bản quyền, bao gồm:",
+              "diem_list": [
+                {
+                  "ky_hieu": "a",
+                  "text": "Thu nhập từ chuyển giao, chuyển quyền sử dụng các đối tượng của quyên sở hữu trí tuệ;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "text": "Thu nhập từ chuyên giao công nghệ."
+                }
+              ]
+            },
+            {
+              "so": "8",
+              "text": "Thu nhập từ nhượng quyên thương mại.",
+              "diem_list": []
+            },
+            {
+              "so": "9",
+              "text": "Thu nhập từ nhận thừa kế, quà tặng là chứng khoán, phần vốn trong các tô chức kinh tê, cơ sở kinh doanh, bất động sản và các tài sản phải đăng ký sở hữu hoặc đăng ký sử dụng.",
+              "diem_list": []
+            },
+            {
+              "so": "10",
+              "text": "Thu nhập khác, bao gồm:",
+              "diem_list": [
+                {
+                  "ky_hieu": "a",
+                  "text": "Thu nhập từ chuyển nhượng tên miền quốc gia Việt Nam “.vn”;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "text": "Thu nhập từ chuyển nhượng kết quả giảm phát thải khí nhà kính, tín chỉ các-bon;"
+                },
+                {
+                  "ky_hieu": "c",
+                  "text": "Thu nhập từ chuyên nhượng biển số xe trúng đấu giá theo quy định của pháp luật;"
+                },
+                {
+                  "ky_hieu": "d",
+                  "text": "Thu nhập từ chuyển nhượng tài sản số;"
+                },
+                {
+                  "ky_hieu": "đ",
+                  "text": "Thu nhập từ chuyển nhượng vàng miếng. Chính phủ quy định ngưỡng giá trị vàng miếng chịu thuế, thời điểm áp dụng thu và điều chỉnh thuế suất thuế thu nhập cá nhân đối với chuyên nhượng vàng miếng phù hợp với lộ trình quản lý thị trường vàng."
+                }
+              ]
+            },
+            {
+              "so": "11",
+              "text": "Chính phủ quy định chỉ tiết Điều này và việc quy đổi thu nhập chịu thuê nhận được không băng tiền, không bằng Đồng Việt Nam.",
+              "diem_list": []
+            }
+          ],
+          "text_truc_tiep": "thu nhập được miễn thuế quy định tại Điều 4 của Luật này:"
+        },
+        {
+          "so": "4",
+          "ten": "Thu nhập được miễn thuế",
+          "khoan_list": [
+            {
+              "so": "1",
+              "text": "Thu nhập từ chuyển nhượng, nhận thừa kế, quà tặng là bất động sản giữa vợ với chồng: cha đẻ, mẹ đẻ với con đẻ; cha nuôi, mẹ nuôi với con nuôi; cha chông, mẹ chông với con dâu; cha vợ, mẹ vợ với con rê; ông nội, bà nội với Á cháu nội; ông ngoại, bà ngoại với cháu ngoại; anh, chị, em ruột với nhau.",
+              "diem_list": []
+            },
+            {
+              "so": "2",
+              "text": "Thu nhập từ chuyền nhượng nhà ở, quyền sử dụng đất ở và tài sản gắn liền với đất ở của cá nhân trong trường hợp cá nhân chỉ có một nhà ở, đất ở duy nhất tại Việt Nam.",
+              "diem_list": []
+            },
+            {
+              "so": "3",
+              "text": "Thu nhập từ giá trị quyền sử dụng đất của cá nhân được Nhà nước giao đất.",
+              "diem_list": []
+            },
+            {
+              "so": "4",
+              "text": "Thu nhập của hộ gia đình, cá nhân trực tiếp sản xuất sản phẩm cây trồng, rừng trồng, chăn nuôi, thủy sản nuôi trông, đánh bắt chưa qua chê biên thành các sản phẩm khác hoặc chỉ qua sơ chế thông thường; sản xuât muôi; thu nhập từ lợi tức cổ phần của thành viên hợp tác xã, liên hiệp hợp tác xã nông nghiệp, cá nhân là nông dân ký kết hợp đồng với doanh nghiệp tham gia “Cánh đồng lớn”, trồng rừng sản xuât, nuôi trông thủy sản.",
+              "diem_list": []
+            },
+            {
+              "so": "5",
+              "text": "Thu nhập từ chuyên đổi đất nông nghiệp của hộ gia đình, cá nhân được Nhà nước giao để sản xuất.",
+              "diem_list": []
+            },
+            {
+              "so": "6",
+              "text": "Thu nhập từ lãi trái phiếu chính phủ, lãi trái phiếu chính quyền địa phương, lãi tiên gửi tại tô chức tín dụng, lãi từ hợp đông bảo hiểm nhân thọ.",
+              "diem_list": []
+            },
+            {
+              "so": "7",
+              "text": "Thu nhập từ kiều hối.",
+              "diem_list": []
+            },
+            {
+              "so": "8",
+              "text": "Tiền lương làm việc ban đêm, làm thêm giờ, tiền lương, tiền công trả cho những ngày không nghỉ phép theo quy định của pháp luật.",
+              "diem_list": []
+            },
+            {
+              "so": "9",
+              "text": "Tiền lương hưu do Quỹ bảo hiểm xã hội chỉ trả; thu nhập do quỹ bảo hiêm hưu trí bỗ sung, quỹ hưu trí tự nguyện chỉ trả.",
+              "diem_list": []
+            },
+            {
+              "so": "10",
+              "text": "Thu nhập từ học bồng, bao gồm:",
+              "diem_list": [
+                {
+                  "ky_hieu": "a",
+                  "text": "Học bồng nhận được từ ngân sách nhà nước;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "text": "Học bồng nhận được từ tổ chức trong nước và ngoài nước theo chương trình hỗ trợ khuyến học của tô chức đó."
+                }
+              ]
+            },
+            {
+              "so": "11",
+              "text": "Thu nhập từ bồi thường hợp đồng bảo hiểm nhân thọ, phi nhân thọ, tiền bồi thường tai nạn lao động, khoản bồi thường nhà nước và các khoản bồi thường khác theo quy định của pháp luật.",
+              "diem_list": []
+            },
+            {
+              "so": "12",
+              "text": "Thu nhập nhận được từ các tô chức và quỹ từ thiện được cơ quan nhà nước có thâm quyên cho phép thành lập hoặc công nhận, hoạt động vì mục đích từ thiện, nhân đạo, không vì mục tiêu lợi nhuận.",
+              "diem_list": []
+            },
+            {
+              "so": "13",
+              "text": "Thu nhập nhận được từ nguồn viện trợ nước ngoài vì mục đích từ thiện, nhân đạo dưới hình thức chính phủ và phi chính phủ được cơ quan nhà nước có thấm quyền phê duyệt. 5",
+              "diem_list": []
+            },
+            {
+              "so": "14",
+              "text": "Thu nhập từ tiên lương, tiên công của thuyên viên là người Việt Nam làm việc cho các hãng tàu nước ngoài hoặc các hãng tàu Việt Nam vận tải quôc tê.",
+              "diem_list": []
+            },
+            {
+              "so": "15",
+              "text": "Thu nhập của cá nhân là chủ tàu, cá nhân có quyền sử dụng tàu và cá nhân làm việc trên tàu từ hoạt động cung câp hàng hóa, dịch vụ trực tiêp phục vụ hoạt động khai thác, đánh bắt thủy sản xa bờ.",
+              "diem_list": []
+            },
+            {
+              "so": "16",
+              "text": "Thu nhập từ chuyển nhượng lần đầu kết quả giảm phát thải khí nhà kính của cá nhân được công nhận kết quả giảm phát thải khí nhà kính, tín chỉ các-bon của cá nhân được cấp tín chỉ các-bon; thu nhập từ tiền lãi trái phiếu xanh; thu nhập từ chuyền nhượng lần đầu trái phiếu xanh sau khi phát hành.",
+              "diem_list": []
+            },
+            {
+              "so": "17",
+              "text": "Thu nhập từ tiền lương, tiền công từ thực hiện nhiệm vụ khoa học, công nghệ và đôi mới sáng tạo.",
+              "diem_list": []
+            },
+            {
+              "so": "18",
+              "text": "Thu nhập từ quyền tác giả của nhiệm vụ khoa học, công nghệ và đôi mới sáng tạo khi kết quả nhiệm vụ được thương mại hóa theo quy định của pháp luật về khoa học, công nghệ và đôi mới sáng tạo, pháp luật về sở hữu trí tuệ.",
+              "diem_list": []
+            },
+            {
+              "so": "19",
+              "text": "Thu nhập của nhà đầu tư cá nhân, chuyên gia từ dự án khởi nghiệp sáng tạo, sáng lập viên cho doanh nghiệp khởi nghiệp sáng tạo, nhà đâu tư cá nhân góp vốn vào quỹ đầu tư mạo hiểm.",
+              "diem_list": []
+            },
+            {
+              "so": "20",
+              "text": "Thu nhập từ tiền lương, tiền công của chuyên gia nước ngoài làm việc tại chương trình, dự án tài trợ bằng nguồn vốn ODA không hoàn lại, chương trình, dự án phi chính phủ nước ngoài tại Việt Nam; cá nhân là người Việt Nam làm việc tại cơ quan đại diện của tô chức quốc tế thuộc Hệ thống Liên hợp quốc tại Việt Nam; cá nhân tham gia lực lượng gìn giữ hòa bình của Liên hợp quốc.",
+              "diem_list": []
+            },
+            {
+              "so": "21",
+              "text": "Thu nhập sau khi đã nộp thuế thu nhập doanh nghiệp của cá nhân là chủ doanh nghiệp tư nhân, cá nhân là chủ công ty trách nhiệm hữu hạn một thành viên.",
+              "diem_list": []
+            },
+            {
+              "so": "22",
+              "text": "Chính phủ quy định chỉ tiết Điều này.",
+              "diem_list": []
+            }
+          ],
+          "text_truc_tiep": ""
+        },
+        {
+          "so": "5",
+          "ten": "Các trường hợp miễn thuế, giảm thuế khác",
+          "khoan_list": [
+            {
+              "so": "1",
+              "text": "Người nộp thuế gặp khó khăn do thiên tai, dịch bệnh, hoả hoạn, tai nạn, bệnh hiểm nghèo ảnh hưởng đến khả năng nộp thuế thì được giảm thuế tương ứng với mức độ thiệt hại nhưng không vượt quá số thuế phải nộp.",
+              "diem_list": []
+            },
+            {
+              "so": "2",
+              "text": "Miễn thuế thu nhập cá nhân trong thời hạn 05 năm đối với thu nhập từ tiền lương, tiền công của cá nhân là nhân lực công nghiệp công nghệ sô chât lượng cao thuộc các trường hợp sau:",
+              "diem_list": [
+                {
+                  "ky_hieu": "a",
+                  "text": "Thu nhập từ dự án hoạt động công nghiệp công nghệ số trong khu công nghệ số tập trung: 6"
+                },
+                {
+                  "ky_hieu": "b",
+                  "text": "Thu nhập từ dự án nghiên cứu và phát triển, sản xuất sản phẩm công nghệ số trọng điềm, chip bán dẫn, hệ thống trí tuệ nhân tạo;"
+                },
+                {
+                  "ky_hieu": "c",
+                  "text": "Thu nhập từ các hoạt động đào tạo nhân lực công nghiệp công nghệ số."
+                }
+              ]
+            },
+            {
+              "so": "3",
+              "text": "Miễn thuế thu nhập cá nhân trong thời hạn 05 năm đối với thu nhập từ tiền lương, tiền công của cá nhân là nhân lực công nghệ cao thực hiện hoạt động nghiên cứu và phát triển công nghệ cao hoặc công nghệ chiến lược thuộc Danh mục công nghệ cao được ưu tiên đầu tư phát triển hoặc Danh mục công nghệ chiến lược, Danh mục sản phẩm công nghệ chiến lược theo quy định của pháp luật về công nghệ cao.",
+              "diem_list": []
+            },
+            {
+              "so": "4",
+              "text": "Miễn thuế thu nhập cá nhân đối với chuyển nhượng chứng chỉ quỹ mở thành lập theo quy định của pháp luật về chứng khoán được nắm giữ từ 02 năm trở lên kế từ ngày mua.",
+              "diem_list": []
+            },
+            {
+              "so": "5",
+              "text": "Giảm 50% thuế thu nhập cá nhân đối với lợi tức của nhà đầu tư cá nhân được chia từ quỹ đầu tư chứng khoán, quỹ đầu tư bất động sản thành lập theo quy định của Luật Chứng khoán trong thời hạn do Chính phủ quy định.",
+              "diem_list": []
+            },
+            {
+              "so": "6",
+              "text": "Chính phủ quy định chi tiết Điều này.",
+              "diem_list": []
+            }
+          ],
+          "text_truc_tiep": ""
+        },
+        {
+          "so": "6",
+          "ten": "Quản lý thuế đối với thuế thu nhập cá nhân",
+          "khoan_list": [],
+          "text_truc_tiep": "Căn cứ quy định của Luật này, Chính phủ quy định về kỳ tính thuế theo năm đối với thu nhập từ kinh doanh, thu nhập từ tiền lương, tiền công của cá nhân cư trú; kỳ tính thuế theo từng lần phát sinh đối với các khoản thu nhập khác của cá nhân cư trú và cá nhân không cư trú; thời điểm xác định thu nhập tính thuế; quyết toán thuế; hoàn thuế đối với trường hợp cá nhân có số thuế đã nộp lớn hơn số thuế phải nộp hoặc chưa đến mức phải nộp; trách nhiệm khấu trừ, khai thay, nộp thay cho người nộp thuế phù hợp với quy định của Luật Quản lý thuế."
+        }
+      ]
+    },
+    {
+      "so": "II",
+      "ten": "CĂN CỨ TÍNH THUÉ ĐÓI VỚI CÁ NHÂN CƯ TRÚ",
+      "dieu_list": [
+        {
+          "so": "7",
+          "ten": "Thuế thu nhập cá nhân đối với thu nhập từ kinh doanh",
+          "khoan_list": [
+            {
+              "so": "1",
+              "text": "Cá nhân cư trú có hoạt động sản xuất, kinh doanh có mức doanh thu năm từ 500 triệu đồng trở xuống không phải nộp thuế thu nhập cá nhân. Chính phủ trình Ủy ban Thường vụ Quốc hội điều chỉnh mức doanh thu không phải nộp thuế thu nhập cá nhân phù hợp với tình hình kinh tế - xã hội trong từng thời kỳ.",
+              "diem_list": []
+            },
+            {
+              "so": "2",
+              "text": "Thuế thu nhập cá nhân đối với thu nhập từ kinh doanh của cá nhân cư trú có doanh thu năm trên mức quy định tại khoản I Điêu này được xác định bằng thu nhập tính thuế nhân (x) với thuế suất. Trong đó:",
+              "diem_list": [
+                {
+                  "ky_hieu": "a",
+                  "text": "Thu nhập tính thuế được xác định bằng doanh thu của hàng hóa, dịch vụ bán ra trừ (-) đi chi phí liên quan đến hoạt động sản xuất, kinh doanh trong kỳ tính thuế;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "text": "Cá nhân kinh doanh có doanh thu năm trên mức quy định tại khoản I Điều này đến 03 tỷ đồng: thuế suất 15%;"
+                },
+                {
+                  "ky_hieu": "c",
+                  "text": "Cá nhân kinh doanh có doanh thu năm trên 03 tỷ đồng đến 50 tỷ đồng: thuế suất 17%;"
+                },
+                {
+                  "ky_hieu": "d",
+                  "text": "Cá nhân kinh doanh có doanh thu năm trên 50 tỷ đồng: thuế suất 20%. Thu nhập từ cho thuê bất động sản quy định tại khoản 4 Điều này không áp dụng cách tính thuế quy định tại khoản này."
+                }
+              ]
+            },
+            {
+              "so": "3",
+              "text": "Cá nhân kinh doanh có doanh thu năm trên mức quy định tại khoản l Điều này đến 03 tỷ đồng được lựa chọn nộp thuế theo quy định tại điểm a và điểm b khoản 2 Điều này hoặc nộp thuế theo thuế suất nhân (x) với doanh thu tính thuế. Doanh thu tính thuế và thuế suất được xác định như sau:",
+              "diem_list": [
+                {
+                  "ky_hieu": "a",
+                  "text": "Doanh thu tính thuế được xác định bằng phần doanh thu vượt trên mức quy định tại khoản 1 Điều này;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "text": "Phân phối, cung cấp hàng hoá: thuế suất 0,5%;"
+                },
+                {
+                  "ky_hieu": "c",
+                  "text": "Dịch vụ, xây dựng không bao thầu nguyên vật liệu: thuế suất 2%. Riêng hoạt động cho thuê tài sản, đại lý bảo hiểm, đại lý xổ số, đại lý bán hàng đa cấp: thuế suất 5%;"
+                },
+                {
+                  "ky_hieu": "d",
+                  "text": "Sản xuất, vận tải, dịch vụ có gắn với hàng hoá, xây dựng có bao thầu nguyên vật liệu: thuế suất 1,5%;"
+                },
+                {
+                  "ky_hieu": "đ",
+                  "text": "Hoạt động cung cấp sản phẩm và dịch vụ nội dung thông tin số về giải trí, trò chơi điện tử, phim số, ảnh số, nhạc số, quảng cáo số: thuế suất 5%;"
+                },
+                {
+                  "ky_hieu": "e",
+                  "text": "Hoạt động kinh doanh khác: thuế suất 1%."
+                }
+              ]
+            },
+            {
+              "so": "4",
+              "text": "Cá nhân cho thuê bất động sản, trừ hoạt động kinh doanh lưu trú, nộp thuế thu nhập cá nhân được xác định bằng phần doanh thu vượt trên mức quy định tại khoản 1 Điều này nhân (x) với thuế suất 5%.",
+              "diem_list": []
+            },
+            {
+              "so": "5",
+              "text": "Chính phủ quy định chỉ tiết Điều này.",
+              "diem_list": []
+            }
+          ],
+          "text_truc_tiep": ""
+        },
+        {
+          "so": "8",
+          "ten": "Thuế thu nhập cá nhân đối với thu nhập từ tiền lương, tiền công",
+          "khoan_list": [
+            {
+              "so": "1",
+              "text": "Thuế thu nhập cá nhân đối với thu nhập từ tiền lương, tiền công của cá nhân cư trú được xác định bằng thu nhập tính thuế quy định tại khoản 2 Điều này, không phân biệt nơi trả thu nhập, nhân (x) với thuế suất tại Biểu thuế lũy tiến từng phần quy định tại Điều 9 của Luật này.",
+              "diem_list": []
+            },
+            {
+              "so": "2",
+              "text": "Thu nhập tính thuế đối với thu nhập từ tiền lương, tiền công là tổng thu nhập chịu thuế quy định tại khoản 2 Điều 3 của Luật này mà người nộp thuế nhận được trong kỳ tính thuế, trừ (-) đi các khoản đóng góp bảo hiểm xã hội, bảo hiểm y tế, bảo hiểm thất nghiệp, bảo hiểm trách nhiệm nghề nghiệp đối với một số ngành, nghề phải tham gia bảo hiểm bắt buộc, khoản đóng góp tham gia bảo hiểm hưu trí bổ sung theo quy định của Luật Bảo hiểm xã hội, mua bảo hiểm hưu trí tự nguyện, bảo hiểm nhân thọ không vượt quá mức do Chính phủ quy định và các khoản giảm trừ quy định tại Điều 10 và Điều 11 của Luật này.",
+              "diem_list": []
+            },
+            {
+              "so": "3",
+              "text": "Thời điểm xác định thu nhập tính thuế từ tiền lương, tiền công là thời điểm tổ chức, cá nhân trả thu nhập cho người nộp thuế hoặc thời điểm người nộp thuê nhận được thu nhập.",
+              "diem_list": []
+            }
+          ],
+          "text_truc_tiep": ""
+        },
+        {
+          "so": "9",
+          "ten": "Biểu thuế luỹ tiến từng phần",
+          "khoan_list": [
+            {
+              "so": "1",
+              "text": "Biểu thuế luỹ tiến từng phần áp dụng đối với thu nhập tính thuế quy định tại khoản 2 Điều 8 của Luật này.",
+              "diem_list": []
+            },
+            {
+              "so": "2",
+              "text": "Biểu thuế luỹ tiến từng phần được quy định như sau:",
+              "diem_list": []
+            }
+          ],
+          "text_truc_tiep": ""
+        },
+        {
+          "so": "10",
+          "ten": "Giảm trừ gia cảnh",
+          "khoan_list": [
+            {
+              "so": "1",
+              "text": "Giảm trừ gia cảnh là số tiền được trừ vào thu nhập chịu thuế trước khi tính thuê đôi với thu nhập từ tiên lương, tiên công của người nộp thuê là cá nhân cư trú. Giảm trừ gia cảnh gôm:",
+              "diem_list": [
+                {
+                  "ky_hieu": "a",
+                  "text": "Mức giảm trừ đối với người nộp thuế là 15,5 triệu đồng/tháng (186 triệu đồng/năm);"
+                },
+                {
+                  "ky_hieu": "b",
+                  "text": "Mức giảm trừ đối với mỗi người phụ thuộc là 6,2 triệu đồng/tháng."
+                }
+              ]
+            },
+            {
+              "so": "2",
+              "text": "Căn cứ biến động của giá cả, thu nhập, Chính phủ trình Ủy ban Thường vụ Quôc hội quy định mức giảm trừ gia cảnh quy định tại khoản 1 Điêu này phù 9 hợp với tình hình kinh tế - xã hội trong từng thời kỳ.",
+              "diem_list": []
+            },
+            {
+              "so": "3",
+              "text": "Việc xác định mức giảm trừ gia cảnh đối với người phụ thuộc thực hiện theo nguyên tắc mỗi người phụ thuộc chỉ được tính giảm trừ một lân vào một người nộp thuê.",
+              "diem_list": []
+            },
+            {
+              "so": "4",
+              "text": "Người phụ thuộc là người mà người nộp thuế có trách nhiệm nuôi dưỡng, bao gôm:",
+              "diem_list": [
+                {
+                  "ky_hieu": "a",
+                  "text": "Con chưa thành niên; con là người mắt năng lực hành vi dân sự, người khuyêt tật, không có khả năng lao động;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "text": "Các cá nhân không có thu nhập hoặc có thu nhập không vượt quá mức do Bộ trưởng Bộ Tài chính quy định, bao gôm con thành niên đang học đại học, cao đăng, trung học chuyên nghiệp hoặc học nghê; vợ hoặc chông không có khả năng lao động; bô, mẹ đã hết tuôi lao động hoặc không có khả năng lao động; những người khác không nơi nương tựa mà người nộp thuê phải trực tiêp nuôi dưỡng."
+                }
+              ]
+            }
+          ],
+          "text_truc_tiep": ""
+        },
+        {
+          "so": "11",
+          "ten": "Giảm trừ đối với các khoản đóng góp từ thiện, nhân đạo và các khoản giảm trừ khác",
+          "khoan_list": [
+            {
+              "so": "1",
+              "text": "Khoản đóng góp từ thiện, nhân đạo, bao gồm:",
+              "diem_list": [
+                {
+                  "ky_hieu": "a",
+                  "text": "Khoản đóng góp vào tổ chức, cơ sở chăm sóc, nuôi dưỡng trẻ em có hoàn cảnh đặc biệt khó khăn, người khuyết tật, người già không nơi nương tựa;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "text": "Khoản đóng góp vào quỹ từ thiện, quỹ nhân đạo, quỹ khuyến học;"
+                },
+                {
+                  "ky_hieu": "c",
+                  "text": "Khoản đóng góp vào các tổ chức có chức năng huy động tài trợ được thành lập và hoạt động theo quy định của pháp luật. Tổ chức, cơ sở và các quỹ quy định tại khoản này phải được cơ quan nhà nước có thâm quyên cho phép thành lập hoặc công nhận, hoạt động vì mục đích từ thiện, nhân đạo, khuyên học, không vì mục tiêu lợi nhuận."
+                }
+              ]
+            },
+            {
+              "so": "2",
+              "text": "Khoản chi cho y tế, giáo dục - đào tạo của người nộp thuế, người phụ thuộc của người nộp thuê được giảm trừ vào thu nhập trước khi tính thuê theo mức do Chính phủ quy định.",
+              "diem_list": []
+            },
+            {
+              "so": "3",
+              "text": "Các khoản chi quy định tại Điều này phải đáp ứng các điều kiện về hóa đơn, chứng từ theo quy định của pháp luật và không được chi trả từ các nguôn khác.",
+              "diem_list": []
+            },
+            {
+              "so": "4",
+              "text": "Chính phủ quy định chỉ tiết Điều này.",
+              "diem_list": []
+            }
+          ],
+          "text_truc_tiep": "Cá nhân cư trú được giảm trừ vào thu nhập chịu thuế trước khi tính thuế đôi với thu nhập từ tiên lương, tiên công các khoản sau đây:"
+        },
+        {
+          "so": "12",
+          "ten": "Thuế thu nhập cá nhân đối với thu nhập từ đầu tư vốn",
+          "khoan_list": [
+            {
+              "so": "1",
+              "text": "Thuế đối với thu nhập từ đầu tư vốn của cá nhân cư trú được xác định băng thu nhập tính thuê nhân (x) với thuê suât 5%. 10",
+              "diem_list": []
+            },
+            {
+              "so": "2",
+              "text": "Thu nhập tính thuế từ đầu tư vốn là tổng số các khoản thu nhập chịu thuê từ đâu tư vôn quy định tại khoản 3 Điêu 3 của Luật này mà người nộp thuê nhận được theo từng lân phát sinh.",
+              "diem_list": []
+            },
+            {
+              "so": "3",
+              "text": "Thời điểm xác định thu nhập tính thuế từ đầu tư vốn là thời điểm tổ chức, cá nhân trả thu nhập cho người nộp thuê hoặc thời điêm người nộp thuê nhận được thu nhập.",
+              "diem_list": []
+            },
+            {
+              "so": "4",
+              "text": "Chính phủ quy định chỉ tiết Điều này.",
+              "diem_list": []
+            }
+          ],
+          "text_truc_tiep": ""
+        },
+        {
+          "so": "13",
+          "ten": "Thuế thu nhập cá nhân đối với thu nhập từ chuyền nhượng vốn",
+          "khoan_list": [
+            {
+              "so": "1",
+              "text": "Thuế thu nhập cá nhân đối với thu nhập từ chuyển nhượng vốn của cá nhân cư trú được xác định băng thu nhập tính thuê nhân (x) với thuê suât 20% theo từng lân chuyên nhượng. Trong đó, thu nhập tính thuê từ chuyên nhượng vôn được xác định băng giá chuyên nhượng trừ (-) đi giá mua và các khoản chi phí hợp lý liên quan đên việc tạo ra thu nhập từ chuyên nhượng vôn. Trường hợp không xác định giá mua và các chỉ phí liên quan đến việc chuyên nhượng vôn thì thuê thu nhập cá nhân được xác định băng giá chuyên nhượng nhân (x) với thuê suât 2%.",
+              "diem_list": []
+            },
+            {
+              "so": "2",
+              "text": "Thuế thu nhập cá nhân đối với thu nhập từ chuyển nhượng chứng khoán được xác định băng giá chuyên nhượng nhân (x) với thuê suât 0,1% theo từng lân chuyên nhượng.",
+              "diem_list": []
+            },
+            {
+              "so": "3",
+              "text": "Thời điểm xác định thu nhập tính thuế từ chuyển nhượng vốn là thời điêm giao dịch hoàn thành theo quy định của pháp luật.",
+              "diem_list": []
+            },
+            {
+              "so": "4",
+              "text": "Chính phủ quy định chỉ tiết Điều này.",
+              "diem_list": []
+            }
+          ],
+          "text_truc_tiep": ""
+        },
+        {
+          "so": "14",
+          "ten": "Thuế thu nhập cá nhân đối với thu nhập từ chuyển nhượng",
+          "khoan_list": [
+            {
+              "so": "1",
+              "text": "Thuế thu nhập cá nhân đối với thu nhập từ chuyên nhượng bất động sản của cá nhân cư trú được xác định băng giá chuyên nhượng nhân (x) với thuê suât 2%.",
+              "diem_list": []
+            },
+            {
+              "so": "2",
+              "text": "Thời điểm xác định thu nhập tính thuế từ chuyển nhượng bất động sản là thời điêm hợp đông chuyên nhượng có hiệu lực theo quy định của pháp luật hoặc thời điêm đăng ký quyên sử dụng, quyên sở hữu bât động sản.",
+              "diem_list": []
+            },
+            {
+              "so": "3",
+              "text": "Chính phủ quy định chỉ tiết Điều này.",
+              "diem_list": []
+            }
+          ],
+          "text_truc_tiep": "bất động sản"
+        },
+        {
+          "so": "15",
+          "ten": "Thuế thu nhập cá nhân đối với thu nhập từ trúng thưởng",
+          "khoan_list": [
+            {
+              "so": "1",
+              "text": "Thuế thu nhập cá nhân đối với thu nhập từ trúng thưởng của cá nhân cư trú được xác định băng thu nhập tính thuê nhân (x) với thuê suât 10%.",
+              "diem_list": []
+            },
+            {
+              "so": "2",
+              "text": "Thu nhập tính thuế từ trúng thưởng là phần giá trị giải thưởng vượt trên 20 triệu đông mà người nộp thuê nhận được theo từng lân trúng thưởng. lãi",
+              "diem_list": []
+            },
+            {
+              "so": "3",
+              "text": "Thời điểm xác định thu nhập tính thuế từ trúng thưởng là thời điểm tổ chức, cá nhân trả thu nhập cho người nộp thuê.",
+              "diem_list": []
+            }
+          ],
+          "text_truc_tiep": ""
+        },
+        {
+          "so": "16",
+          "ten": "Thuế thu nhập cá nhân đối với thu nhập từ tiền bản quyền",
+          "khoan_list": [
+            {
+              "so": "1",
+              "text": "Thuế thu nhập cá nhân đối với thu nhập từ tiền bản quyền của cá nhân cư trú được tính băng thu nhập tính thuê nhân (x) với thuê suât 5%.",
+              "diem_list": []
+            },
+            {
+              "so": "2",
+              "text": "Thu nhập tính thuế từ tiền bản quyền là phân thu nhập vượt trên 20 triệu đồng mà người nộp thuế nhận được khi chuyền giao, chuyển quyền sử dụng các đối tượng của quyền sở hữu trí tuệ, chuyển giao công nghệ theo từng hợp đồng.",
+              "diem_list": []
+            },
+            {
+              "so": "3",
+              "text": "Thời điểm xác định thu nhập tính thuế từ tiền bản quyền là thời điểm tô chức, cá nhân trả thu nhập cho người nộp thuê.",
+              "diem_list": []
+            }
+          ],
+          "text_truc_tiep": ""
+        },
+        {
+          "so": "17",
+          "ten": "Thuế thu nhập cá nhân đối với thu nhập từ nhượng quyền",
+          "khoan_list": [
+            {
+              "so": "1",
+              "text": "Thuế thu nhập cá nhân đối với thu nhập từ nhượng quyền thương mại của cá nhân cư trú được tính băng thu nhập tính thuê nhân (x) với thuê suât 5%.",
+              "diem_list": []
+            },
+            {
+              "so": "2",
+              "text": "Thu nhập tính thuế từ nhượng quyền thương mại là phần thu nhập vượt trên 20 triệu đông mà người nộp thuê nhận được theo từng hợp đông nhượng quyên thương mại.",
+              "diem_list": []
+            },
+            {
+              "so": "3",
+              "text": "Thời điểm xác định thu nhập tính thuế từ nhượng quyền thương mại là thời điêm tô chức, cá nhân trả thu nhập cho người nộp thuê.",
+              "diem_list": []
+            }
+          ],
+          "text_truc_tiep": "thương mại"
+        },
+        {
+          "so": "18",
+          "ten": "Thuế thu nhập cá nhân đối với thu nhập từ nhận thừa kế,",
+          "khoan_list": [
+            {
+              "so": "1",
+              "text": "Thuế thu nhập cá nhân đối với thu nhập từ nhận thừa kế, quà tặng của cá nhân cư trú được xác định bằng thu nhập tính thuế nhân (x) với thuế suất 10%.",
+              "diem_list": []
+            },
+            {
+              "so": "2",
+              "text": "Thu nhập tính thuế từ nhận thừa kế, quà tặng là phần giá trị tài sản thừa kê, quà tặng vượt trên 20 triệu đông mà người nộp thuê nhận được theo từng lân phát sinh.",
+              "diem_list": []
+            },
+            {
+              "so": "3",
+              "text": "Thời điểm xác định thu nhập tính thuế được quy định như sau:",
+              "diem_list": [
+                {
+                  "ky_hieu": "a",
+                  "text": "Đối với thu nhập từ nhận thừa kế là thời điểm người nộp thuế nhận được thừa kê;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "text": "Đối với thu nhập từ nhận quà tặng là thời điểm tô chức, cá nhân tặng cho người nộp thuê hoặc thời điêm người nộp thuê nhận được thu nhập."
+                }
+              ]
+            },
+            {
+              "so": "4",
+              "text": "Chính phủ quy định chỉ tiết Điều này.",
+              "diem_list": []
+            }
+          ],
+          "text_truc_tiep": "quà tặng"
+        },
+        {
+          "so": "19",
+          "ten": "Thuế thu nhập cá nhân đối với thu nhập khác",
+          "khoan_list": [
+            {
+              "so": "1",
+              "text": "Thuế thu nhập cá nhân đối với thu nhập khác của cá nhân cư trú quy định tại các điêm a, b và c khoản 10 Điêu 3 của Luật này được xác định băng thu LỆ”: nhập tính thuế nhân (x) với thuế suất 5%. Trong đó, thu nhập tính thuế là phần thu nhập vượt trên 20 triệu đồng mà người nộp thuê nhận được theo từng lân phát sinh.",
+              "diem_list": []
+            },
+            {
+              "so": "2",
+              "text": "Thuế thu nhập cá nhân đối với thu nhập khác của cá nhân cư trú quy định tại điêm d và điêm đ khoản 10 Điêu 3 của Luật này được xác định băng giá chuyên nhượng nhân (x) với thuê suât 0,1%.",
+              "diem_list": []
+            },
+            {
+              "so": "3",
+              "text": "Thời điểm xác định thu nhập tính thuế là thời điểm tô chức, cá nhân chỉ trả thu nhập cho người nộp thuế hoặc thời điểm người nộp thuê nhận được thu nhập.",
+              "diem_list": []
+            },
+            {
+              "so": "4",
+              "text": "Chính phủ quy định chỉ tiết Điều này.",
+              "diem_list": []
+            }
+          ],
+          "text_truc_tiep": ""
+        }
+      ]
+    },
+    {
+      "so": "III",
+      "ten": "CĂN CỨ TÍNH THUÉ ĐÓI VỚI CÁ NHÂN KHÔNG CƯ TRÚ",
+      "dieu_list": [
+        {
+          "so": "20",
+          "ten": "Thuế thu nhập cá nhân đối với thu nhập từ kinh doanh",
+          "khoan_list": [
+            {
+              "so": "1",
+              "text": "Thuế thu nhập cá nhân đối với thu nhập từ kinh doanh của cá nhân không cư trú được xác định băng doanh thu từ hoạt động kinh doanh quy định tại khoản 2 Điêu này nhân (x) với thuê suât quy định tại khoản 3 Điêu này.",
+              "diem_list": []
+            },
+            {
+              "so": "2",
+              "text": "Doanh thu là toàn bộ tiền bán hàng, tiền gia công, tiền cung ứng dịch vụ kê cả trợ giá, phụ thu, phụ trội mà cá nhân được hưởng, không phân biệt đã thu được tiên hay chưa thu được tiên, bao gôm cả chi phí do bên mua hàng hoá, dịch vụ trả thay cho cá nhân không cư trú mà không được hoàn trả. Trường hợp thoả thuận hợp đồng không bao gồm thuế thu nhập cá nhân thì doanh thu tính thuê phải quy đôi là toàn bộ sô tiên mà cá nhân không cư trú nhận được dưới bât kỳ hình thức nào từ việc cung câp hàng hoá, dịch vụ tại Việt Nam không phụ thuộc vào địa điêm tiên hành các hoạt động kinh doanh.",
+              "diem_list": []
+            },
+            {
+              "so": "3",
+              "text": "Thuế suất:",
+              "diem_list": [
+                {
+                  "ky_hieu": "a",
+                  "text": "Phân phối, cung cấp hàng hoá: 1%;"
+                },
+                {
+                  "ky_hieu": "b",
+                  "text": "Dịch vụ, xây dựng không bao thầu nguyên vật liệu: 5%;"
+                },
+                {
+                  "ky_hieu": "c",
+                  "text": "Sản xuất, vận tải, dịch vụ có gắn với hàng hoá, xây dựng có bao thầu nguyên vật liệu: 2%;"
+                },
+                {
+                  "ky_hieu": "d",
+                  "text": "Hoạt động cung cấp sản phẩm và dịch vụ nội dung thông tin số về giải trí, trò chơi điện tử, phim sô, ảnh sô, nhạc sô, quảng cáo: 5%;"
+                },
+                {
+                  "ky_hieu": "đ",
+                  "text": "Hoạt động kinh doanh khác: 2%."
+                }
+              ]
+            }
+          ],
+          "text_truc_tiep": ""
+        },
+        {
+          "so": "21",
+          "ten": "Thuế thu nhập cá nhân đối với thu nhập từ tiền lương, tiền công",
+          "khoan_list": [],
+          "text_truc_tiep": "Thuế thu nhập cá nhân đối với thu nhập từ tiền lương, tiền công của cá nhân không cư trú được xác định bằng tông số tiền lương, tiền công mà cá nhân 13 không cư trú nhận được do thực hiện công việc tại Việt Nam nhân (x) với thuế suât 20%, không phân biệt nơi trả thu nhập."
+        },
+        {
+          "so": "22",
+          "ten": "Thuế thu nhập cá nhân đối với thu nhập từ đầu tư vốn",
+          "khoan_list": [],
+          "text_truc_tiep": "Thuê thu nhập cá nhân đôi với thu nhập từ đâu tư vôn của cá nhân không cư trú được xác định băng tông sô thu nhập mà cá nhân không cư trú nhận được từ việc đâu tư vôn vào tô chức, cá nhân tại Việt Nam nhân (x) với thuê suât 5%."
+        },
+        {
+          "so": "23",
+          "ten": "Thuế thu nhập cá nhân đối với thu nhập từ chuyển nhượng vốn",
+          "khoan_list": [
+            {
+              "so": "1",
+              "text": "Thuế thu nhập cá nhân đối với thu nhập từ chuyên nhượng vốn của cá nhân không cư trú được xác định bằng thu nhập tính thuế nhân (x) với thuế suất 20% theo từng lần phát sinh, không phân biệt việc chuyên nhượng được thực hiện tại Việt Nam hay tại nước ngoài. Trong đó, thu nhập tính thuế từ chuyển nhượng vốn được xác định bằng giá chuyên nhượng trừ (-) đi giá mua và các khoản chỉ phí hợp lý liên quan đến việc tạo ra thu nhập từ chuyển nhượng phần vốn tại tô chức, cá nhân Việt Nam. Trường hợp không xác định được giá mua và các chỉ phí liên quan đến việc chuyển nhượng vốn thì thuế thu nhập cá nhân được xác định bằng giá chuyền nhượng phần vốn tại tổ chức, cá nhân Việt Nam nhân (x) với thuế suất 2%.",
+              "diem_list": []
+            },
+            {
+              "so": "2",
+              "text": "Thuế thu nhập cá nhân đối với thu nhập từ chuyển nhượng chứng khoán của cá nhân không cư trú được xác định băng giá chuyên nhượng nhân (x) với thuê suât 0,1%.",
+              "diem_list": []
+            },
+            {
+              "so": "3",
+              "text": "Chính phủ quy định chỉ tiết Điều này.",
+              "diem_list": []
+            }
+          ],
+          "text_truc_tiep": ""
+        },
+        {
+          "so": "24",
+          "ten": "Thuế thu nhập cá nhân đối với thu nhập từ chuyển nhượng",
+          "khoan_list": [
+            {
+              "so": "1",
+              "text": "Thuế thu nhập cá nhân đối với thu nhập từ chuyền nhượng bắt động sản của cá nhân không cư trú được xác định băng giá chuyên nhượng nhân (x) với thuê suât 2%.",
+              "diem_list": []
+            },
+            {
+              "so": "2",
+              "text": "Chính phủ quy định chỉ tiết Điều này.",
+              "diem_list": []
+            }
+          ],
+          "text_truc_tiep": "bất động sản"
+        },
+        {
+          "so": "25",
+          "ten": "Thuế thu nhập cá nhân đối với thu nhập từ tiền bản quyền,",
+          "khoan_list": [
+            {
+              "so": "1",
+              "text": "Thuế thu nhập cá nhân đối với thu nhập từ tiền bản quyền của cá nhân không cư trú được xác định bằng phần thu nhập vượt trên 20 triệu đồng. theo từng hợp đồng chuyển giao, chuyển quyền sử dụng các đối tượng của quyên sở hữu trí tuệ, chuyển giao công nghệ tại Việt Nam nhân (x) với thuế suất 5%.",
+              "diem_list": []
+            },
+            {
+              "so": "2",
+              "text": "Thuế thu nhập cá nhân đối với thu nhập từ nhượng quyền thương mại của cá nhân không cư trú được xác định bằng phần thu nhập vượt trên 20 triệu đồng theo từng hợp đồng nhượng quyền thương mại tại Việt Nam nhân (x) với thuế suất 5%. 14",
+              "diem_list": []
+            }
+          ],
+          "text_truc_tiep": "nhượng quyền thương mại"
+        },
+        {
+          "so": "26",
+          "ten": "Thuế thu nhập cá nhân đối với thu nhập từ trúng thưởng,",
+          "khoan_list": [],
+          "text_truc_tiep": "nhận thừa kế, quà tặng Thuế thu nhập cá nhân đối với thu nhập từ trúng thưởng, nhận thừa kế, quà tặng của cá nhân không cư trú được xác định băng phân giá trị vượt trên 20 triệu đồng theo từng lần trúng thưởng, nhận thừa kế, quà tặng tại Việt Nam nhân (x) với thuê suât 10%."
+        },
+        {
+          "so": "27",
+          "ten": "Thuế thu nhập cá nhân đối với thu nhập khác",
+          "khoan_list": [
+            {
+              "so": "1",
+              "text": "Thuế thu nhập cá nhân đối với thu nhập khác của cá nhân không cư trú quy định tại các điêm a, b và c khoản 10 Điêu 3 của Luật này được xác định bằng thu nhập tính thuế nhân (x) với thuế suất 5%. Thu nhập tính thuê là phân thu nhập vượt trên 20 triệu đông mà người nộp thuê nhận được theo từng lân phát sinh.",
+              "diem_list": []
+            },
+            {
+              "so": "2",
+              "text": "Thuế thu nhập cá nhân đối với thu nhập khác của cá nhân không cư trú quy định tại điêm d và điêm đ khoản 10 Điêu 3 của Luật này được xác định băng giá chuyên nhượng nhân (x) với thuê suât 0,1%.",
+              "diem_list": []
+            },
+            {
+              "so": "3",
+              "text": "Chính phủ quy định chỉ tiết Điều này.",
+              "diem_list": []
+            }
+          ],
+          "text_truc_tiep": ""
+        },
+        {
+          "so": "28",
+          "ten": "Thời điểm xác định thu nhập tính thuế",
+          "khoan_list": [
+            {
+              "so": "1",
+              "text": "Thời điểm xác định thu nhập tính thuế đối với thu nhập quy định tại Điều 20 của Luật này là thời điểm cá nhân không cư trú nhận được thu nhập hoặc thời điểm xuất hoá đơn bán hàng hoá, cung câp dịch vụ.",
+              "diem_list": []
+            },
+            {
+              "so": "2",
+              "text": "Thời điểm xác định thu nhập tính thuế đối với thu nhập quy định tại các điều 21, 22, 25, 26 và 27 của Luật này là thời điểm tô chức, cá nhân tại Việt Nam trả thu nhập cho cá nhân không cư trú hoặc thời điểm cá nhân không cư trú nhận được thu nhập.",
+              "diem_list": []
+            },
+            {
+              "so": "3",
+              "text": "Thời điểm xác định thu nhập tính thuế đối với thu nhập quy định tại Điều 23 của Luật này là thời điêm giao dịch hoàn thành theo quy định của pháp luật.",
+              "diem_list": []
+            },
+            {
+              "so": "4",
+              "text": "Thời điểm xác định thu nhập tính thuế đối với thu nhập quy định tại Điều 24 của Luật này là thời điểm hợp đồng chuyên nhượng có hiệu lực theo quy định của pháp luật hoặc thời điểm đăng ký quyền sử dụng, quyền sở hữu bất động sản.",
+              "diem_list": []
+            },
+            {
+              "so": "5",
+              "text": "Chính phủ quy định chỉ tiết Điều này.",
+              "diem_list": []
+            }
+          ],
+          "text_truc_tiep": ""
+        }
+      ]
+    },
+    {
+      "so": "IV",
+      "ten": "ĐIÊU KHOẢN THỊ HÀNH",
+      "dieu_list": [
+        {
+          "so": "29",
+          "ten": "Hiệu lực thi hành",
+          "khoan_list": [
+            {
+              "so": "1",
+              "text": "Luật này có hiệu lực thi hành từ ngày 01 tháng 7 năm 2026, trừ trường hợp quy định tại khoản 2 Điêu này. 15",
+              "diem_list": []
+            },
+            {
+              "so": "2",
+              "text": "Các quy định liên quan đến thu nhập từ kinh doanh, từ tiền lương, tiền công của cá nhân cư trú áp dụng từ kỳ tính thuê năm 2026.",
+              "diem_list": []
+            },
+            {
+              "so": "3",
+              "text": "Luật Thuế thu nhập cá nhân số 04/2007/QH12 đã được sửa đổi, bổ sung một số điều theo Luật số 26/2012/QH13, Luật số 71/2014/QH13, Luật số 31/2024/QH15, Luật số 43/2024/QH15, Luật số 48/2024/QH15, Luật số 56/2025/QH15, Luật số 71/2025/QH15 và Luật số 93/2025/QH15 hết hiệu lực kê từ ngày Luật này có hiệu lực thi hành; riêng các quy định liên quan đến thu nhập từ kinh doanh, từ tiền lương, tiền công của cá nhân cư trú hết hiệu lực thi hành từ kỳ tính thuế năm 2026.",
+              "diem_list": []
+            },
+            {
+              "so": "4",
+              "text": "Trường hợp có quy định khác nhau về ưu đãi thuế giữa Luật này với Luật Thủ đô, nghị quyết của Quốc hội và giải pháp quy định tại điểm h khoản 8 Điều 10 của Luật Tổ chức Chính phủ thì áp dụng theo quy định của Luật Thủ đô, nghị quyết của Quốc hội và giải pháp quy định tại điểm h khoản 8 Điều 10 của Luật Tổ chức Chính phủ. Trường hợp quy định tại Luật này ưu đãi hơn thì người nộp thuế được lựa chọn áp dụng mức ưu đãi có lợi nhất. Luật này được Quốc hội nước Cộng hòa xã hội chủ nghĩa Việt Nam khóa XỰ, K) họp thứ 10 thông qua ngày 10 tháng 12 năm 2025. CHỦ TỊCH QUÓC HỘI vo,",
+              "diem_list": []
+            }
+          ],
+          "text_truc_tiep": ""
+        }
+      ]
+    }
+  ],
+  "bieu_thue_luy_tien_dieu_9": [
+    {
+      "raw_line": "| Đến 120 Đến 10 5",
+      "muc_nam_tu": "Đến",
+      "muc_nam_gia_tri": "120",
+      "muc_nam_den": null,
+      "muc_thang_tu": "Đến",
+      "muc_thang_gia_tri": "10",
+      "muc_thang_den": null,
+      "thue_suat_percent": 5
+    },
+    {
+      "raw_line": "2 Trên 120 đến 360 Trên 10 đến 30 10",
+      "muc_nam_tu": "Trên",
+      "muc_nam_gia_tri": "120",
+      "muc_nam_den": "360",
+      "muc_thang_tu": "Trên",
+      "muc_thang_gia_tri": "10",
+      "muc_thang_den": "30",
+      "thue_suat_percent": 10
+    },
+    {
+      "raw_line": "3 Trên 360 đến 720 Trên 30 đến 60 20",
+      "muc_nam_tu": "Trên",
+      "muc_nam_gia_tri": "360",
+      "muc_nam_den": "720",
+      "muc_thang_tu": "Trên",
+      "muc_thang_gia_tri": "30",
+      "muc_thang_den": "60",
+      "thue_suat_percent": 20
+    },
+    {
+      "raw_line": "4 Trên 720 đến 1.200 Trên 60 đến 100 30",
+      "muc_nam_tu": "Trên",
+      "muc_nam_gia_tri": "720",
+      "muc_nam_den": "1.200",
+      "muc_thang_tu": "Trên",
+      "muc_thang_gia_tri": "60",
+      "muc_thang_den": "100",
+      "thue_suat_percent": 30
+    },
+    {
+      "raw_line": "5 Trên 1.200 Trên 100 35",
+      "muc_nam_tu": "Trên",
+      "muc_nam_gia_tri": "1.200",
+      "muc_nam_den": null,
+      "muc_thang_tu": "Trên",
+      "muc_thang_gia_tri": "100",
+      "muc_thang_den": null,
+      "thue_suat_percent": 35
+    }
+  ]
+}
