@@ -31,13 +31,17 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "eval"))
 sys.path.insert(0, str(Path(__file__).parent.parent / "src" / "indexing"))
-from metrics import recall_at_k, reciprocal_rank, aggregate_metrics
+from metrics import recall_at_k, reciprocal_rank, aggregate_metrics, paired_bootstrap_test
 
 from build_bm25_index import simple_tokenize
 
 PROJECT_ROOT = Path(__file__).parent.parent
 INDEX_DIR = PROJECT_ROOT / "data" / "index"
-GT_PATH = PROJECT_ROOT / "data" / "eval" / "ground_truth.jsonl"
+# Dùng TEST SET GIỮ KÍN (32 câu) làm số liệu CHÍNH THỨC báo cáo trong khóa
+# luận -- đồng bộ phương pháp luận với thí nghiệm enrichment (xem
+# split_dev_test.py). Dev set (14 câu, có GT001) CHỈ dùng khi cần khám phá
+# vấn đề/thiết kế thử nghiệm mới, KHÔNG dùng để báo cáo số liệu cuối cùng.
+GT_PATH = PROJECT_ROOT / "data" / "eval" / "ground_truth_test.jsonl"
 REPORT_PATH = PROJECT_ROOT / "reports" / "retrieval_comparison.json"
 
 STRATEGIES = ["A_dieu", "B_khoan_context", "C_fixed"]
@@ -200,6 +204,42 @@ def main():
     for r in all_results:
         print(f"{r['strategy']:<18}{r['retriever']:<14}"
               f"{r['recall@3']:<8.3f}{r['recall@5']:<8.3f}{r['recall@10']:<8.3f}{r['mrr']:<8.3f}")
+
+    # --- Kiểm định thống kê: BM25 vs Hybrid, BM25 vs Dense ---
+    # CHỈ so sánh trong A_dieu và B_khoan_context -- C_fixed bị loại vì
+    # tiêu chí đối chiếu quá lỏng lẻo (gần kịch trần, không phân biệt được),
+    # xem ghi chú resolve_relevant_ids().
+    print("\n=== KIỂM ĐỊNH THỐNG KÊ (paired bootstrap, so trên recall@5) ===")
+    by_key = {(r["strategy"], r["retriever"]): r for r in all_results}
+
+    def _paired_no_none(list_a, list_b):
+        """Loại bỏ cặp có None (câu hỏi không đối chiếu được ground-truth
+        hợp lệ cho chiến lược đang xét) trước khi đưa vào bootstrap, giữ
+        đúng thứ tự ghép cặp giữa 2 danh sách."""
+        pairs = [(a, b) for a, b in zip(list_a, list_b) if a is not None and b is not None]
+        return [p[0] for p in pairs], [p[1] for p in pairs]
+
+    for strategy in ["A_dieu", "B_khoan_context"]:
+        bm25_r = by_key.get((strategy, "BM25"))
+        hybrid_r = by_key.get((strategy, "Hybrid_RRF"))
+        dense_r = by_key.get((strategy, "Dense"))
+        if not (bm25_r and hybrid_r):
+            continue
+
+        print(f"\n--- {strategy}: BM25 vs Hybrid_RRF ---")
+        a_scores, b_scores = _paired_no_none(bm25_r["per_query_recall@5"], hybrid_r["per_query_recall@5"])
+        res = paired_bootstrap_test(a_scores, b_scores)
+        print(f"  Mean BM25={res['mean_a']:.3f}  Mean Hybrid={res['mean_b']:.3f}  "
+              f"diff={res['observed_diff']:+.3f}  p={res['p_value']:.4f}  (n={len(a_scores)})")
+        print(f"  {res['ket_luan']}")
+
+        if dense_r:
+            print(f"--- {strategy}: BM25 vs Dense ---")
+            a2, b2 = _paired_no_none(bm25_r["per_query_recall@5"], dense_r["per_query_recall@5"])
+            res2 = paired_bootstrap_test(a2, b2)
+            print(f"  Mean BM25={res2['mean_a']:.3f}  Mean Dense={res2['mean_b']:.3f}  "
+                  f"diff={res2['observed_diff']:+.3f}  p={res2['p_value']:.4f}  (n={len(a2)})")
+            print(f"  {res2['ket_luan']}")
 
 
 if __name__ == "__main__":

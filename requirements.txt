@@ -5,5 +5,7 @@ langchain
 langchain-community
 langchain-huggingface
 langchain-openai
-
+fastapi
+uvicorn
+ 
  
