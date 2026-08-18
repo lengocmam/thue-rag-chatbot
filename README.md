@@ -232,6 +232,17 @@ Gom hết vào 1 chỗ để dễ soi, nói thẳng thay vì để người đ�
 - **LLM sinh câu trả lời (`llama3.1` 8B) là model tổng quát, chưa fine-tune riêng cho domain pháp luật thuế tiếng Việt** — đã quan sát trường hợp model từ chối trả lời đúng thiết kế (an toàn) khi retrieval không tìm đủ chunk liên quan, nhưng chưa được benchmark hệ thống về độ chính xác câu trả lời khi có đủ context (mới dừng ở đánh giá retrieval, chưa đánh giá answer quality bằng LLM-as-judge hay con người).
 - **Hạ tầng chỉ ở quy mô dev/demo**: chạy trên 1 máy, Ollama CPU-only (~22.6 giây/câu hỏi), chưa có cơ chế cache, rate-limit, hay xử lý đồng thời nhiều request.
 
+## Hướng phát triển tiếp theo
+
+Những việc đã xác định rõ nhưng chưa làm (khác với "Giới hạn đã biết" — đây là việc CÓ THỂ làm để khắc phục trực tiếp từng giới hạn):
+
+- **Đánh giá chất lượng câu trả lời (answer quality), không chỉ retrieval**: hiện mới đo Recall@K/MRR của retrieval; chưa có benchmark có hệ thống cho câu trả lời cuối cùng của LLM (VD: LLM-as-judge chấm điểm "faithfulness" — câu trả lời có bám sát context hay không — kết hợp đối chiếu thủ công một phần, theo đúng mô hình đã dùng để đánh giá cổng lọc off-topic).
+- **Xử lý tường minh quan hệ "văn bản nào đang hiệu lực"**: xây một lớp metadata quan hệ giữa các văn bản (văn bản A sửa đổi văn bản B, hiệu lực từ ngày nào) để retrieval/prompt có thể chủ động loại bỏ hoặc hạ ưu tiên nội dung đã lỗi thời, thay vì phó mặc hoàn toàn cho LLM tự suy luận từ context thô.
+- **Mở rộng ground-truth lên 100-150 câu** (hiện 46 câu) để có đủ năng lực thống kê phát hiện khác biệt nhỏ hơn giữa các cấu hình gần nhau (VD so sánh 2 model embedding khác nhau).
+- **Thử thêm ít nhất 1 model embedding khác** (VD `multilingual-e5-base`) để biết kết luận "BM25 thắng embedding" là do bản chất domain hay do riêng model `vietnamese-sbert`.
+- **Enrichment tinh vi hơn**: thí nghiệm hiện tại (thêm ngữ cảnh cấp văn bản, đồng loạt mọi chunk) không có ý nghĩa thống kê — có thể thử enrichment CHỌN LỌC (chỉ áp dụng cho nhóm chunk "tìm-và-thay" đã xác định là khó retrieve) thay vì áp dụng tràn lan.
+- **Cache + rate limit cho API**: hiện `/api/chat` chạy đồng bộ, không cache câu hỏi trùng lặp, không giới hạn số request đồng thời — cần thiết nếu triển khai thật.
+
 ## Tác giả
 
 Dự án cá nhân — RAG chatbot pháp luật thuế Việt Nam, xây dựng với trọng tâm đo lường khoa học và tư duy hệ thống (retrieval, chunking, agent gating, LLM serving) hơn là chỉ lắp ráp công cụ có sẵn.
